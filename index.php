@@ -9,9 +9,9 @@ require_once __DIR__.'./vendor/autoload.php';
 
 $app = new Application(basename(__DIR__));
 
-$app->router->get('/home', [new HomeController(), 'index']);
-$app->router->get('/about', [new AboutController(), 'index']);
-$app->router->get('/contact', [new ContactController(), 'index']);
-$app->router->post('/contact', [new ContactController(), 'store']);
+$app->router->get('/home', [HomeController::class, 'index']);
+$app->router->get('/about', [AboutController::class, 'index']);
+$app->router->get('/contact', [ContactController::class, 'index']);
+$app->router->post('/contact', [ContactController::class, 'store']);
 
 $app->run();
