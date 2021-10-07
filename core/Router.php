@@ -125,16 +125,18 @@ class Router
      *
      * @param  string  $viewName
      *
+     * @param  array  $params
+     *
      * @return string
      * @author karam mustafa
      */
-    public function renderView(string $viewName)
+    public function renderView(string $viewName, $params = [])
     {
         if ($this->checkIsValidView($viewName)) {
 
             $layoutContent = $this->renderContent();
 
-            $viewContent = $this->renderOnlyView("$viewName");
+            $viewContent = $this->renderOnlyView("$viewName", $params);
 
             return print(str_replace("{{content}}", $viewContent, $layoutContent));
         }
@@ -186,11 +188,16 @@ class Router
      *
      * @param  string  $viewName
      *
+     * @param  array  $params
+     *
      * @return false|string
      * @author karam mustafa
      */
-    private function renderOnlyView(string $viewName)
+    private function renderOnlyView(string $viewName, $params = [])
     {
+        foreach ($params as $key => $value) {
+            $$key = $value;
+        }
         ob_start();
         include_once $this->formatViewFilePath("$viewName");
         return ob_get_clean();
