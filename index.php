@@ -12,5 +12,6 @@ $app = new Application(basename(__DIR__));
 $app->router->get('/home', [new HomeController(), 'index']);
 $app->router->get('/about', [new AboutController(), 'index']);
 $app->router->get('/contact', [new ContactController(), 'index']);
+$app->router->post('/contact', [new ContactController(), 'store']);
 
 $app->run();
