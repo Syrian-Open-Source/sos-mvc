@@ -12,7 +12,8 @@ namespace app\core;
 class Application
 {
 
-    public static $ROOT_DIR;
+    public static string $ROOT_DIR;
+    public static Application $instance;
 
     /**
      * router property
@@ -38,6 +39,7 @@ class Application
     public function __construct(string $rootDir)
     {
         static::$ROOT_DIR = $rootDir;
+        self::$instance = $this;
         $this->request = new Request();
         $this->response = new Response();
         $this->router = new Router($this->request, $this->response);
