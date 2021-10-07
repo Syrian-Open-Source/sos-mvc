@@ -6,7 +6,7 @@ namespace app\controllers;
 
 use app\core\Application;
 
-class ContactController
+class ContactController extends BaseController
 {
 
     public function index()
@@ -14,7 +14,7 @@ class ContactController
         $params = [
             'title' => 'test from request',
         ];
-        return Application::$instance->router->renderView('contact' ,$params);
+        return $this->render('contact', $params);
     }
 
     public function store()

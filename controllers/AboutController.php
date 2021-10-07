@@ -6,11 +6,11 @@ namespace app\controllers;
 
 use app\core\Application;
 
-class AboutController
+class AboutController extends BaseController
 {
 
     public function index()
     {
-        return Application::$instance->router->renderView('about');
+        return $this->render('about');
     }
 }
