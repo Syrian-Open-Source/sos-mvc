@@ -5,6 +5,7 @@ namespace app\controllers;
 
 
 use app\core\Application;
+use app\core\Request;
 
 class ContactController extends BaseController
 {
@@ -17,7 +18,7 @@ class ContactController extends BaseController
         return $this->render('contact', $params);
     }
 
-    public function store()
+    public function store(Request $request)
     {
         echo 'its request';
         exit;
