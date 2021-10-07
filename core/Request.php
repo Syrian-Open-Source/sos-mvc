@@ -6,8 +6,13 @@ namespace app\core;
 
 class Request
 {
-
-    private $availableMethods = [
+    /**
+     * this will contains all config for custom request method type.
+     *
+     * @author karam mustafa
+     * @var array
+     */
+    private array $availableMethods = [
         'get' => [INPUT_GET],
         'post' => [INPUT_POST],
     ];
@@ -36,15 +41,37 @@ class Request
      * @return string
      * @author karam mustafa
      */
-    public function getMethod()
+    public function method()
     {
         return strtolower($_SERVER['REQUEST_METHOD']);
     }
 
     /**
+     * check if request is post
+     *
+     * @return boolean
+     * @author karam mustafa
+     */
+    public function isPost()
+    {
+        return $this->method() == 'post';
+    }
+
+    /**
+     * check if request is post
+     *
+     * @return boolean
+     * @author karam mustafa
+     */
+    public function isGet()
+    {
+        return $this->method() == 'get';
+    }
+
+    /**
      * get the body of get request, this will filter the inputs and return the secure body.
      *
-     * @return false|mixed|string
+     * @return array
      * @author karam mustafa
      */
     public function getBody()
@@ -61,18 +88,18 @@ class Request
     /**
      * this will match the method of request, and get the variable to make the process dynamic.
      *
-     * @return false|mixed|string
+     * @return array
      * @author karam mustafa
      */
     private function resolveMethodType()
     {
         $type = $_GET;
 
-        if ($this->getMethod() == 'post') {
+        if ($this->method() == 'post') {
             $type = $_POST;
         }
 
-        return [$type, $this->availableMethods[$this->getMethod()][0]];
+        return [$type, $this->availableMethods[$this->method()][0]];
 
     }
 }
