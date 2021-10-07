@@ -79,7 +79,7 @@ class Router
     {
         $path = $this->request->getPath();
 
-        $method = $this->request->getMethod();
+        $method = $this->request->method();
 
         $callback = $this->routes[$method][$path] ?? false;
 
@@ -118,7 +118,7 @@ class Router
         }
 
         if (is_array($callback)) {
-            $callback[0] = new $callback[0]();
+            $callback[0] = Application::$instance->controller = new $callback[0]();
         }
 
         return call_user_func($callback, $this->request);
@@ -182,8 +182,9 @@ class Router
      */
     private function renderContent()
     {
+        $layout = Application::$instance->controller->layout;
         ob_start();
-        include_once $this->formatViewFilePath("layoutes/main");
+        include_once $this->formatViewFilePath("layoutes/$layout");
         return ob_get_clean();
     }
 

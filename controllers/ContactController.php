@@ -20,6 +20,8 @@ class ContactController extends BaseController
 
     public function store(Request $request)
     {
+        $this->setLayout('auth');
+        var_dump(Application::$instance->controller->layout);
         echo 'its request';
         exit;
     }

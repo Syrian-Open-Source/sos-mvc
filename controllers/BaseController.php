@@ -8,7 +8,13 @@ use app\core\Application;
 
 class BaseController
 {
+    
+    public $layout = 'main';
 
+    public function setLayout($layout)
+    {
+        $this->layout = $layout;
+    }
 
     public function render(...$params)
     {
