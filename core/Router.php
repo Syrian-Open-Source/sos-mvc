@@ -128,7 +128,7 @@ class Router
      * @return string
      * @author karam mustafa
      */
-    private function renderView(string $viewName)
+    public function renderView(string $viewName)
     {
         if ($this->checkIsValidView($viewName)) {
 
