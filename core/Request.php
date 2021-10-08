@@ -102,4 +102,15 @@ class Request
         return [$type, $this->availableMethods[$this->method()][0]];
 
     }
+
+    /**
+     * description
+     *
+     * @return array
+     * @author karam mustafa
+     */
+    public function all()
+    {
+        return $this->getBody();
+    }
 }
