@@ -28,6 +28,10 @@
                     <a class="nav-link" href="/contact">Contact</a>
                 </li>
             </ul>
+            <form class="d-flex">
+                <a class="nav-link active" aria-current="page" href="/login">Login</a>
+                <a class="nav-link active" aria-current="page" href="/register">Register</a>
+            </form>
         </div>
     </div>
 </nav>
