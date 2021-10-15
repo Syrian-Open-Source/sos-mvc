@@ -63,6 +63,14 @@ class Application
     public $controller;
 
     /**
+     * instance of database class
+     *
+     * @author karam mustafa
+     * @var \app\core\Database
+     */
+    public $db;
+
+    /**
      * @return \app\controllers\BaseController
      * @author karam mustaf
      */
@@ -94,6 +102,7 @@ class Application
         $this->request = new Request();
         $this->response = new Response();
         $this->router = new Router($this->request, $this->response);
+        $this->db = new Database();
     }
 
     /**
