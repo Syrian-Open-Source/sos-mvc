@@ -8,7 +8,19 @@ use app\controllers\ContactController;
 
 require_once __DIR__.'./vendor/autoload.php';
 
-$app = new Application(basename(__DIR__));
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+$config = [
+  'db' => [
+      'dsn' => $_ENV['DB_DSN'],
+      'user' => $_ENV['DB_USERNAME'],
+      'password' => $_ENV['DB_PASSWORD'],
+  ]
+];
+
+$app = new Application(basename(__DIR__) , $config);
+
 $app->router->get('/home', [HomeController::class, 'index']);
 $app->router->get('/about', [AboutController::class, 'index']);
 $app->router->get('/contact', [ContactController::class, 'index']);

@@ -93,8 +93,9 @@ class Application
      * Application constructor.
      *
      * @param  string  $rootDir
+     * @param $config
      */
-    public function __construct($rootDir)
+    public function __construct($rootDir, $config)
     {
         static::$ROOT_DIR = $rootDir;
         self::$instance = $this;
@@ -102,7 +103,7 @@ class Application
         $this->request = new Request();
         $this->response = new Response();
         $this->router = new Router($this->request, $this->response);
-        $this->db = new Database();
+        $this->db = new Database($config['db']);
     }
 
     /**
