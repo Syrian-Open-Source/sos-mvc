@@ -16,8 +16,8 @@ class Field
     const TYPE_COLOR = 'color';
     const TYPE_TIME = 'time';
 
-    public Model $model;
-    public string $attribtue;
+    public $model;
+    public $attribtue;
 
     /**
      * Field constructor.
@@ -25,7 +25,7 @@ class Field
      * @param  \app\core\Model  $model
      * @param  string  $attribute
      */
-    public function __construct(Model $model, string $attribute)
+    public function __construct(Model $model, $attribute)
     {
         $this->type = self::TYPE_TEXT;
         $this->model = $model;

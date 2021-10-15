@@ -12,7 +12,7 @@ class Request
      * @author karam mustafa
      * @var array
      */
-    private array $availableMethods = [
+    private  $availableMethods = [
         'get' => [INPUT_GET],
         'post' => [INPUT_POST],
     ];

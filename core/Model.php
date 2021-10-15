@@ -14,9 +14,9 @@ abstract class Model
     public const RULE_EMAIL = 'email';
     public const RULE_UNIQUE = 'unique';
 
-    public array $errors = [];
+    public $errors = [];
 
-    public array $errorMessages = [
+    public $errorMessages = [
         self::RULE_REQUIRED => 'This field is required',
         self::RULE_EMAIL => 'This field must be valid email address',
         self::RULE_MIN => 'Min length of this field must be {min}',
@@ -34,7 +34,7 @@ abstract class Model
         }
     }
 
-    abstract public function rules(): array;
+    abstract public function rules();
 
     public function validate()
     {
@@ -66,7 +66,7 @@ abstract class Model
         return empty($this->errors);
     }
 
-    private function dispatchError(string $attr, string $ruleName, $rules = [])
+    private function dispatchError($attr, $ruleName, $rules = [])
     {
         $this->errors[$attr][] = $this->resolveValidationErrorMessages($ruleName, $rules);
     }
@@ -80,12 +80,12 @@ abstract class Model
         return $message;
     }
 
-    public function hasError(string $attr)
+    public function hasError($attr)
     {
         return $this->errors[$attr] ?? false;
     }
 
-    public function getError(string $attr)
+    public function getError($attr)
     {
         return $this->errors[$attr][0] ?? '';
     }

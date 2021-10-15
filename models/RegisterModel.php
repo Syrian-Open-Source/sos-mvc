@@ -18,7 +18,7 @@ class RegisterModel extends Model
         echo 'register new success';
     }
 
-    public function rules(): array
+    public function rules()
     {
         return [
             'name' => [self::RULE_REQUIRED],

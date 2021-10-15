@@ -9,7 +9,6 @@ use app\controllers\ContactController;
 require_once __DIR__.'./vendor/autoload.php';
 
 $app = new Application(basename(__DIR__));
-
 $app->router->get('/home', [HomeController::class, 'index']);
 $app->router->get('/about', [AboutController::class, 'index']);
 $app->router->get('/contact', [ContactController::class, 'index']);

@@ -22,14 +22,14 @@ class Router
      * @author karam mustafa
      * @var \app\core\Response
      */
-    protected Response $response;
+    protected $response;
     /**
      * instance of request class
      *
      * @author karam mustafa
      * @var \app\core\Request
      */
-    private Request $request;
+    private $request;
 
     /**
      * Router constructor.
@@ -51,7 +51,7 @@ class Router
      *
      * @author karam mustafa
      */
-    public function get(string $path, $callback)
+    public function get($path, $callback)
     {
         $this->routes['get'][$path] = $callback;
     }
@@ -64,7 +64,7 @@ class Router
      *
      * @author karam mustafa
      */
-    public function post(string $path, $callback)
+    public function post($path, $callback)
     {
         $this->routes['post'][$path] = $callback;
     }
@@ -134,7 +134,7 @@ class Router
      * @return string
      * @author karam mustafa
      */
-    public function renderView(string $viewName, $params = [])
+    public function renderView($viewName, $params = [])
     {
         if ($this->checkIsValidView($viewName)) {
 
@@ -156,7 +156,7 @@ class Router
      * @return bool
      * @author karam mustafa
      */
-    private function checkIsValidView(string $viewName)
+    private function checkIsValidView($viewName)
     {
         return file_exists($this->formatViewFilePath("$viewName"));
     }
@@ -169,7 +169,7 @@ class Router
      * @return string
      * @author karam mustafa
      */
-    private function formatViewFilePath(string $path)
+    private function formatViewFilePath($path)
     {
         return __DIR__."./../views/$path.php";
     }
@@ -182,7 +182,7 @@ class Router
      */
     private function renderContent()
     {
-        $layout = Application::$instance->controller->layout;
+        $layout = Application::$instance->controller->layout ?? 'main';
         ob_start();
         include_once $this->formatViewFilePath("layoutes/$layout");
         return ob_get_clean();
@@ -198,7 +198,7 @@ class Router
      * @return false|string
      * @author karam mustafa
      */
-    private function renderOnlyView(string $viewName, $params = [])
+    private function renderOnlyView($viewName, $params = [])
     {
         foreach ($params as $key => $value) {
             $$key = $value;

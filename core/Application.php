@@ -20,7 +20,7 @@ class Application
      * @author karam mustafa
      * @var string
      */
-    public static string $ROOT_DIR;
+    public static $ROOT_DIR;
 
     /**
      * instance of application class
@@ -28,7 +28,7 @@ class Application
      * @author karam mustafa
      * @var \app\core\Application
      */
-    public static Application $instance;
+    public static $instance;
 
     /**
      * instance of route class
@@ -36,7 +36,7 @@ class Application
      * @author karam mustafa
      * @var \app\core\Router
      */
-    public Router $router;
+    public $router;
 
     /**
      * instance of request class
@@ -44,7 +44,7 @@ class Application
      * @author karam mustafa
      * @var \app\core\Request
      */
-    private Request $request;
+    private $request;
 
     /**
      * instance of response class
@@ -52,7 +52,7 @@ class Application
      * @author karam mustafa
      * @var \app\core\Response
      */
-    private Response $response;
+    private $response;
 
     /**
      * instance of base controller class
@@ -60,7 +60,7 @@ class Application
      * @author karam mustafa
      * @var \app\controllers\BaseController
      */
-    public BaseController $controller;
+    public $controller;
 
     /**
      * @return \app\controllers\BaseController
@@ -86,7 +86,7 @@ class Application
      *
      * @param  string  $rootDir
      */
-    public function __construct(string $rootDir)
+    public function __construct($rootDir)
     {
         static::$ROOT_DIR = $rootDir;
         self::$instance = $this;

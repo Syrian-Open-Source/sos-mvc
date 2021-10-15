@@ -21,7 +21,7 @@ class Response
      *
      * @author karam mustafa
      */
-    public function setStatusCode(int $code)
+    public function setStatusCode($code)
     {
         http_response_code($code);
     }
