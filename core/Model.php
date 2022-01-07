@@ -234,7 +234,7 @@ abstract class Model
     }
 
     /**
-     * description
+     * get error details.
      *
      * @param $attr
      *
