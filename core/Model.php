@@ -208,7 +208,7 @@ abstract class Model
     }
 
     /**
-     * description
+     * check if attribute has any error.
      *
      * @param $attr
      *
