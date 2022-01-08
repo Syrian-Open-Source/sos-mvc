@@ -177,7 +177,7 @@ abstract class Model
     }
 
     /**
-     * description
+     * append a new error in errors list for custom attribute.
      *
      * @param  string  $attr
      * @param  string  $message
