@@ -115,7 +115,7 @@ abstract class Model
     abstract public function labels();
 
     /**
-     * description
+     * validate attribute
      *
      * @return bool
      * @author karam mustafa
