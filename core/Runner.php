@@ -32,7 +32,7 @@ class Runner
     }
 
     /**
-     * description
+     * find the command key and run the found code.
      *
      * @param $type
      *
