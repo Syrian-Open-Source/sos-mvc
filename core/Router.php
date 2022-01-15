@@ -54,7 +54,7 @@ class Router
     }
 
     /**
-     * description
+     * set get request type.
      *
      * @param  string  $path
      * @param  mixed  $callback
