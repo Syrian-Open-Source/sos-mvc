@@ -58,7 +58,7 @@ class Session
     }
 
     /**
-     * description
+     * get session value by specific key.
      *
      * @param $key
      *
