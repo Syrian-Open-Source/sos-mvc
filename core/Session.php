@@ -43,7 +43,7 @@ class Session
     }
 
     /**
-     * description
+     * remove session value by specific key.
      *
      * @param  string  $key
      *
