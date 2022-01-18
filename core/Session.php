@@ -27,7 +27,7 @@ class Session
     }
 
     /**
-     * description
+     * set session value by specific key.
      *
      * @param  string  $key
      * @param  mixed  $value
