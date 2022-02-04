@@ -81,7 +81,7 @@ abstract class DbModel extends Model
     }
 
     /**
-     * description
+     * prepare sql statement
      *
      * @param  string  $sql
      *
