@@ -221,7 +221,7 @@ abstract class Model
     }
 
     /**
-     * description
+     * get attribute label
      *
      * @param  string $key
      *
