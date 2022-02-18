@@ -56,7 +56,7 @@ abstract class DbModel extends Model
 
 
     /**
-     * description
+     * find custom record depending on where statement
      *
      * @param $where
      *
