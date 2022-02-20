@@ -38,6 +38,16 @@ class Form
     {
         return new InputField($model, $attributes);
     }
+
+    /**
+     * description
+     *
+     * @param  \app\core\Model  $model
+     * @param $attributes
+     *
+     * @return \app\core\Forms\TextAreaField
+     * @author karam mustafa
+     */
     public function textAreaField(Model $model, $attributes)
     {
         return new TextAreaField($model, $attributes);
