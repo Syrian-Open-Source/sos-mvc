@@ -22,7 +22,7 @@ abstract class DbModel extends Model
     abstract public function attributes(): array;
 
     /**
-     * description
+     * set the table name
      *
      * @return string
      * @author karam mustafa
