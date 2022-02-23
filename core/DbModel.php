@@ -14,7 +14,7 @@ abstract class DbModel extends Model
 {
 
     /**
-     * description
+     * set the model attributes
      *
      * @return array
      * @author karam mustafa
