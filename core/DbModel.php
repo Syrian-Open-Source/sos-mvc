@@ -31,7 +31,7 @@ abstract class DbModel extends Model
 
 
     /**
-     * description
+     * save a new record
      *
      * @return bool
      * @author karam mustafa
