@@ -17,12 +17,16 @@ abstract class DbModel extends Model
         $attributes = $this->attributes();
 
         $params = array_map(fn($param) => ":$param", $attributes);
-        $sqlParams = implode(",",$attributes);
-        $sqlValues = implode(",",$params);
 
-        $statement = $this->prepare("INSERT INTO $table (\"$sqlParams\") VALUES (\"$sqlValues\")");
+        $statement = $this->prepare("INSERT INTO $table (".implode(",", $attributes).") 
+                                         VALUES (".implode(",", $params).")");
 
-        dd($statement);
+        foreach ($attributes as $attribute) {
+            $statement->bindValue(":$attribute", $this->{$attribute});
+        }
+        $statement->execute();
+
+        return true;
     }
 
 

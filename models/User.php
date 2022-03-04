@@ -9,6 +9,10 @@ use app\core\DbModel;
 class User extends DbModel
 {
 
+    public $name = '';
+    public $password = '';
+    public $confirmPassword = '';
+
     public function rules()
     {
         return [
