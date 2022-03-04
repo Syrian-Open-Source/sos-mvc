@@ -6,17 +6,8 @@ namespace app\models;
 
 use app\core\DbModel;
 
-class RegisterModel extends DbModel
+class User extends DbModel
 {
-
-    public $name = '';
-    public $password = '';
-    public $confirmPassword = '';
-
-    public function register()
-    {
-        echo 'register new success';
-    }
 
     public function rules()
     {
@@ -31,7 +22,10 @@ class RegisterModel extends DbModel
 
     public function attributes(): array
     {
-        return [];
+        return [
+            'name',
+            'password',
+        ];
     }
 
     public function tableName(): string
