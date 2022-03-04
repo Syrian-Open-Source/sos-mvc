@@ -18,13 +18,13 @@ class AuthController extends BaseController
 
     public function register(Request $request)
     {
-        $registerModel = new User();
-        $registerModel->load($request->all());
+        $user = new User();
+        $user->load($request->all());
         if ($request->isPost()) {
-            if ($registerModel->validate()) {
-                $registerModel->name = $request->getAttribute('name');
-                $registerModel->password = $request->getAttribute('name');
-                $registerModel->save();
+            if ($user->validate()) {
+                $user->name = $request->getAttribute('name');
+                $user->password = $request->getAttribute('name');
+                $user->save();
             }
         }
         echo 'success';
@@ -32,7 +32,7 @@ class AuthController extends BaseController
 //        $this->setLayout('auth');
 //
 //        return $this->render('register', [
-//            'model' => $registerModel
+//            'model' => $user
 //        ]);
     }
 }
