@@ -8,3 +8,9 @@ function dd(...$params)
     echo '</pre>';
     exit;
 }
+
+
+function env($key)
+{
+    return $_ENV[$key];
+}
