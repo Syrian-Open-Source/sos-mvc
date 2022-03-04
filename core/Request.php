@@ -12,7 +12,7 @@ class Request
      * @author karam mustafa
      * @var array
      */
-    private  $availableMethods = [
+    private $availableMethods = [
         'get' => [INPUT_GET],
         'post' => [INPUT_POST],
     ];
@@ -112,5 +112,16 @@ class Request
     public function all()
     {
         return $this->getBody();
+    }
+
+    /**
+     * description
+     *
+     * @return array
+     * @author karam mustafa
+     */
+    public function getAttribute($key)
+    {
+        return $this->getBody()[$key];
     }
 }

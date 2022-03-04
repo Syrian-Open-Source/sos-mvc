@@ -9,7 +9,7 @@ return new class {
     {
         $query = "create table users (
                 id INT,
-                email VARCHAR(255) not null,
+                name VARCHAR(255) not null,
                 password VARCHAR(255) not null
                 )";
 

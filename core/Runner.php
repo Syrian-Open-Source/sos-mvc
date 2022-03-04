@@ -19,6 +19,10 @@ class Runner
         if ($type == 'migrate') {
             $this->application->db->runMigration();
         }
+
+        if ($type == 'db:refresh') {
+            $this->application->db->refresh();
+        }
     }
 
 

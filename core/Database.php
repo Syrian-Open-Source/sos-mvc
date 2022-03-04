@@ -171,5 +171,20 @@ class Database
         echo '['.date('Y-m-d H:i:s').'] - '.$message.PHP_EOL;
     }
 
+    public function refresh()
+    {
+
+        $dbName = env('DB_NAME');
+        $statement = Application::$instance->db->pdo->query(
+            "SELECT GROUP_CONCAT(Concat('TRUNCATE TABLE ',table_schema,'.',TABLE_NAME) SEPARATOR ';') FROM INFORMATION_SCHEMA.TABLES where table_schema in ('$dbName');
+        ")->execute();
+
+        $this->display('Dropped All tables successfully ');
+        $this->display('Migration all tables ...');
+
+//        $this->runMigration();
+
+    }
+
 
 }
