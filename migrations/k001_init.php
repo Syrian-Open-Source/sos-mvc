@@ -7,11 +7,12 @@ return new class {
 
     public function init(Database $db)
     {
-        $query = "create table users (
-                id INT,
-                name VARCHAR(255) not null,
-                password VARCHAR(255) not null
-                )";
+        $query = "CREATE TABLE IF NOT EXISTS users(
+        id INT AUTO_INCREMENT,
+        name varchar(255),
+        password varchar(255),
+        PRIMARY KEY (id)
+        ) ENGINE=INNODB;)";
 
         $db->pdo->exec($query);
     }
