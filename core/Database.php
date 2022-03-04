@@ -129,10 +129,10 @@ class Database
 
             $tableCount = sizeof($this->newMigrations);
 
-            $this->print("Migrate Done successfully, $tableCount table was created");
+            $this->display("Migrate Done successfully, $tableCount table was created");
 
         } else {
-            $this->print('No Thing to migrate');
+            $this->display('No Thing to migrate');
         }
     }
 
@@ -157,16 +157,16 @@ class Database
 
             $instance = new $fileName;
 
-            $this->print('Migrating '.$fileName);
+            $this->display('Migrating '.$fileName);
             $instance->init();
-            $this->print('Migrated '.$fileName);
+            $this->display('Migrated '.$fileName);
 
             $this->newMigrations[] = $migration;
 
         }
     }
 
-    private function print($message)
+    private function display($message)
     {
         echo '['.date('Y-m-d H:i:s').'] - '.$message.PHP_EOL;
     }
