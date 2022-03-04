@@ -156,7 +156,9 @@ class Database
             $instance = require_once './migrations/'.$migration;
 
             $this->display('Migrating '.$fileName);
-            $instance->init();
+
+            $instance->init(Application::$instance->db);
+
             $this->display('Migrated '.$fileName);
 
             $this->newMigrations[] = $migration;

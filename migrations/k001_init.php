@@ -1,12 +1,12 @@
 <?php
 
 
+use app\core\Database;
+
 return new class {
 
-    public function init()
+    public function init(Database $db)
     {
-        $db = \app\core\Application::$instance->db;
-
         $query = "create table users (
                 id INT,
                 email VARCHAR(255) not null,
