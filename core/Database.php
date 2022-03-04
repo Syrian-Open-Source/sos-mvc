@@ -151,11 +151,9 @@ class Database
                 continue;
             }
 
-            require_once './migrations/'.$migration;
-
             $fileName = pathinfo($migration, PATHINFO_FILENAME);
 
-            $instance = new $fileName;
+            $instance = require_once './migrations/'.$migration;
 
             $this->display('Migrating '.$fileName);
             $instance->init();
