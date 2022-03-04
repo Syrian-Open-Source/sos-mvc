@@ -62,7 +62,7 @@ class Database
      *
      * @author karam mustafa
      */
-    public function resolveMigration()
+    public function runMigration()
     {
         $this->createMigrationTable();
 
