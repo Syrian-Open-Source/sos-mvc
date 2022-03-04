@@ -1,8 +1,8 @@
 <?php
 
 
-class k001_init
-{
+return new class {
+
     public function init()
     {
         $db = \app\core\Application::$instance->db;
@@ -15,4 +15,5 @@ class k001_init
 
         $db->pdo->exec($query);
     }
-}
+
+};
