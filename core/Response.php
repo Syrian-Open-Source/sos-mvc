@@ -25,4 +25,16 @@ class Response
     {
         http_response_code($code);
     }
+
+    /**
+     *
+     *
+     * @param  string  $rul
+     *
+     * @author karam mustafa
+     */
+    public function redirect(string $rul)
+    {
+        return header("Location: $rul");
+    }
 }

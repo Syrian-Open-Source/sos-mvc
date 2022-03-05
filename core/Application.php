@@ -52,7 +52,7 @@ class Application
      * @author karam mustafa
      * @var \app\core\Response
      */
-    private $response;
+    public $response;
 
     /**
      * instance of base controller class

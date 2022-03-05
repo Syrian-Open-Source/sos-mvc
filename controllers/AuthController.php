@@ -4,6 +4,7 @@
 namespace app\controllers;
 
 
+use app\core\Application;
 use app\core\Request;
 use app\models\User;
 
@@ -26,10 +27,9 @@ class AuthController extends BaseController
                 $user->password = $request->getAttribute('name');
                 $user->save();
             }
-            echo 'success';
+            return Application::$instance->response->redirect('/');
 
         }
-//
         $this->setLayout('auth');
 
         return $this->render('register', [
