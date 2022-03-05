@@ -23,9 +23,15 @@ class User extends DbModel
     public function rules()
     {
         return [
-            'name' => [self::RULE_REQUIRED],
+            'name' => [
+                self::RULE_REQUIRED, [
+                    self::RULE_UNIQUE, 'class' => self::class
+                ]
+            ],
             'password' => [
-                self::RULE_REQUIRED, [self::RULE_MIN, 'min' => 5], [self::RULE_MATCH, 'match' => 'password']
+                self::RULE_REQUIRED,
+                [self::RULE_MIN, 'min' => 5],
+                [self::RULE_MATCH, 'match' => 'password']
             ],
             'confirmPassword' => [self::RULE_REQUIRED, [self::RULE_MATCH, 'match' => 'password']]
         ];
