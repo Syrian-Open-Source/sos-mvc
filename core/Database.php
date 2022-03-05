@@ -171,6 +171,11 @@ class Database
         echo '['.date('Y-m-d H:i:s').'] - '.$message.PHP_EOL;
     }
 
+    public function prepare(string $sql)
+    {
+        return $this->pdo->prepare($sql);
+    }
+
     public function refresh()
     {
 
