@@ -60,6 +60,9 @@ abstract class Model
                 if ($ruleName == self::RULE_MATCH && $value !== $this->{$rule['match']}) {
                     $this->dispatchError($attr, $ruleName, $rule);
                 }
+                if ($ruleName == self::RULE_UNIQUE) {
+                    $this->dispatchError($attr, $ruleName, $rule);
+                }
             }
         }
 
