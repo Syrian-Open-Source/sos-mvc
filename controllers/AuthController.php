@@ -26,13 +26,14 @@ class AuthController extends BaseController
                 $user->password = $request->getAttribute('name');
                 $user->save();
             }
+            echo 'success';
+
         }
-        echo 'success';
 //
-//        $this->setLayout('auth');
-//
-//        return $this->render('register', [
-//            'model' => $user
-//        ]);
+        $this->setLayout('auth');
+
+        return $this->render('register', [
+            'model' => $user
+        ]);
     }
 }
