@@ -4,6 +4,7 @@ namespace app\core;
 
 
 use app\controllers\BaseController;
+use app\controllers\Session;
 
 /**
  * Class Application
@@ -69,6 +70,12 @@ class Application
      * @var \app\core\Database
      */
     public $db;
+    /**
+     *
+     * @author karam mustafa
+     * @var \app\controllers\Session
+     */
+    private Session $session;
 
     /**
      * @return \app\controllers\BaseController
@@ -102,6 +109,7 @@ class Application
         self::$instance = $this;
         $this->request = new Request();
         $this->response = new Response();
+        $this->session = new Session();
         $this->router = new Router($this->request, $this->response);
         $this->db = new Database($config['db']);
     }
