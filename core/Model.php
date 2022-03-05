@@ -60,8 +60,12 @@ abstract class Model
                 if ($ruleName == self::RULE_MATCH && $value !== $this->{$rule['match']}) {
                     $this->dispatchError($attr, $ruleName, $rule);
                 }
-                if ($ruleName == self::RULE_UNIQUE) {
-                    $this->dispatchError($attr, $ruleName, $rule);
+                if (is_array($rule) && $rule['rule'] == self::RULE_UNIQUE) {
+                    $className = $rule['class'];
+                    $unique = $rule['attribute'] ?? $attr;
+                    $tableName = $className::tableName();
+                    $statement = Application::$instance->db->prepare("SELECT * FROM $tableName WHERE $unique = :attr ");
+                    $statement->bindValue(':attr', $value);
                 }
             }
         }

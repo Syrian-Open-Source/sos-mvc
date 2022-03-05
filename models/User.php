@@ -25,7 +25,7 @@ class User extends DbModel
         return [
             'name' => [
                 self::RULE_REQUIRED, [
-                    self::RULE_UNIQUE, 'class' => self::class
+                    'rule' => self::RULE_UNIQUE, 'class' => self::class
                 ]
             ],
             'password' => [
