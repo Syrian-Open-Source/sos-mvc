@@ -43,7 +43,7 @@ abstract class Model
             foreach ($rules as $rule) {
                 $ruleName = $rule;
                 if (!is_string($ruleName)) {
-                    $ruleName = $rule[0];
+                    $ruleName = $rule['rule'] ?? $rule[0];
                 }
                 if ($ruleName == self::RULE_REQUIRED && !$value) {
                     $this->dispatchError($attr, $ruleName);
@@ -60,12 +60,17 @@ abstract class Model
                 if ($ruleName == self::RULE_MATCH && $value !== $this->{$rule['match']}) {
                     $this->dispatchError($attr, $ruleName, $rule);
                 }
-                if (is_array($rule) && $rule['rule'] == self::RULE_UNIQUE) {
+                if (is_array($rule) && ($ruleName) == self::RULE_UNIQUE) {
                     $className = $rule['class'];
                     $unique = $rule['attribute'] ?? $attr;
                     $tableName = $className::tableName();
                     $statement = Application::$instance->db->prepare("SELECT * FROM $tableName WHERE $unique = :attr ");
                     $statement->bindValue(':attr', $value);
+                    $statement->execute();
+                    $records = $statement->fetchObject();
+                    if ($records) {
+                        $this->dispatchError($attr,self::RULE_UNIQUE ,['field' => $attr]);
+                    }
                 }
             }
         }
