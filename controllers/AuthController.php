@@ -8,15 +8,36 @@ use app\core\Application;
 use app\core\Request;
 use app\models\User;
 
+/**
+ * Class AuthController
+ *
+ * @author karam mustafa
+ * @package app\controllers
+ */
 class AuthController extends BaseController
 {
 
+    /**
+     * description
+     *
+     * @param  \app\core\Request  $request
+     *
+     * @author karam mustafa
+     */
     public function login(Request $request)
     {
         $this->setLayout('auth');
         $this->render('login');
     }
 
+    /**
+     * description
+     *
+     * @param  \app\core\Request  $request
+     *
+     * @return string|void
+     * @author karam mustafa
+     */
     public function register(Request $request)
     {
         $user = new User();

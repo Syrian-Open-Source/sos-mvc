@@ -4,6 +4,12 @@
 namespace app\core;
 
 
+/**
+ * Class Database
+ *
+ * @author karam mustafa
+ * @package app\core
+ */
 class Database
 {
 
@@ -166,16 +172,36 @@ class Database
         }
     }
 
+    /**
+     * description
+     *
+     * @param $message
+     *
+     * @author karam mustafa
+     */
     private function display($message)
     {
         echo '['.date('Y-m-d H:i:s').'] - '.$message.PHP_EOL;
     }
 
+    /**
+     * description
+     *
+     * @param  string  $sql
+     *
+     * @return bool|\PDOStatement
+     * @author karam mustafa
+     */
     public function prepare(string $sql)
     {
         return $this->pdo->prepare($sql);
     }
 
+    /**
+     * description
+     *
+     * @author karam mustafa
+     */
     public function refresh()
     {
 

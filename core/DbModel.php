@@ -4,13 +4,37 @@
 namespace app\core;
 
 
+/**
+ * Class DbModel
+ *
+ * @author karam mustafa
+ * @package app\core
+ */
 abstract class DbModel extends Model
 {
 
+    /**
+     * description
+     *
+     * @return array
+     * @author karam mustafa
+     */
     abstract public function attributes(): array;
 
+    /**
+     * description
+     *
+     * @return string
+     * @author karam mustafa
+     */
     abstract public function tableName(): string;
 
+    /**
+     * description
+     *
+     * @return bool
+     * @author karam mustafa
+     */
     public function save()
     {
         $table = $this->tableName();
@@ -30,6 +54,14 @@ abstract class DbModel extends Model
     }
 
 
+    /**
+     * description
+     *
+     * @param  string  $sql
+     *
+     * @return bool|\PDOStatement
+     * @author karam mustafa
+     */
     public function prepare(string $sql)
     {
         return Application::$instance->db->pdo->prepare($sql);

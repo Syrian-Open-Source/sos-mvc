@@ -117,6 +117,8 @@ class Request
     /**
      * description
      *
+     * @param $key
+     *
      * @return array
      * @author karam mustafa
      */

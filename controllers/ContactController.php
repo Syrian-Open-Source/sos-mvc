@@ -10,6 +10,12 @@ use app\core\Request;
 class ContactController extends BaseController
 {
 
+    /**
+     * description
+     *
+     * @return string
+     * @author karam mustafa
+     */
     public function index()
     {
         $params = [
@@ -18,6 +24,13 @@ class ContactController extends BaseController
         return $this->render('contact', $params);
     }
 
+    /**
+     * description
+     *
+     * @param  \app\core\Request  $request
+     *
+     * @author karam mustafa
+     */
     public function store(Request $request)
     {
         $this->setLayout('auth');

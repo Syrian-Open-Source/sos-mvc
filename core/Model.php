@@ -4,18 +4,52 @@
 namespace app\core;
 
 
+/**
+ * Class Model
+ *
+ * @author karam mustafa
+ * @package app\core
+ */
 abstract class Model
 {
 
+    /**
+     * @var string
+     */
     public const RULE_REQUIRED = 'required';
+    /**
+     *
+     */
     public const RULE_MIN = 'min';
+    /**
+     * @var string
+     */
     public const RULE_MAX = 'max';
+    /**
+     * @var string
+     */
     public const RULE_MATCH = 'match';
+    /**
+     * @var string
+     */
     public const RULE_EMAIL = 'email';
+    /**
+     * @var string
+     */
     public const RULE_UNIQUE = 'unique';
 
+    /**
+     *
+     * @author karam mustafa
+     * @var array
+     */
     public $errors = [];
 
+    /**
+     *
+     * @author karam mustafa
+     * @var array
+     */
     public $errorMessages = [
         self::RULE_REQUIRED => 'This field is required',
         self::RULE_EMAIL => 'This field must be valid email address',
@@ -25,6 +59,13 @@ abstract class Model
         self::RULE_UNIQUE => 'Record with with this {field} already exists',
     ];
 
+    /**
+     * description
+     *
+     * @param  array  $data
+     *
+     * @author karam mustafa
+     */
     public function load($data = [])
     {
         foreach ($data as $key => $value) {
@@ -34,8 +75,20 @@ abstract class Model
         }
     }
 
+    /**
+     * description
+     *
+     * @return mixed
+     * @author karam mustafa
+     */
     abstract public function rules();
 
+    /**
+     * description
+     *
+     * @return bool
+     * @author karam mustafa
+     */
     public function validate()
     {
         foreach ($this->rules() as $attr => $rules) {
@@ -78,11 +131,29 @@ abstract class Model
         return empty($this->errors);
     }
 
+    /**
+     * description
+     *
+     * @param $attr
+     * @param $ruleName
+     * @param  array  $rules
+     *
+     * @author karam mustafa
+     */
     private function dispatchError($attr, $ruleName, $rules = [])
     {
         $this->errors[$attr][] = $this->resolveValidationErrorMessages($ruleName, $rules);
     }
 
+    /**
+     * description
+     *
+     * @param  string  $ruleName
+     * @param  array  $params
+     *
+     * @return mixed|string|string[]
+     * @author karam mustafa
+     */
     private function resolveValidationErrorMessages(string $ruleName, $params = [])
     {
         $message = $this->errorMessages[$ruleName];
@@ -92,11 +163,27 @@ abstract class Model
         return $message;
     }
 
+    /**
+     * description
+     *
+     * @param $attr
+     *
+     * @return bool|mixed
+     * @author karam mustafa
+     */
     public function hasError($attr)
     {
         return $this->errors[$attr] ?? false;
     }
 
+    /**
+     * description
+     *
+     * @param $attr
+     *
+     * @return mixed|string
+     * @author karam mustafa
+     */
     public function getError($attr)
     {
         return $this->errors[$attr][0] ?? '';

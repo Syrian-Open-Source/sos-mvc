@@ -4,16 +4,40 @@
 namespace app\core;
 
 
+/**
+ * Class Runner
+ *
+ * @author karam mustafa
+ * @package app\core
+ */
 class Runner
 {
+    /**
+     *
+     * @author karam mustafa
+     * @var \app\core\Application
+     */
     public Application $application;
 
+    /**
+     * Runner constructor.
+     *
+     * @param  \app\core\Application  $application
+     * @param  string  $type
+     */
     public function __construct(Application $application, string $type)
     {
         $this->application = $application;
         $this->resolveCommand($type);
     }
 
+    /**
+     * description
+     *
+     * @param $type
+     *
+     * @author karam mustafa
+     */
     private function resolveCommand($type)
     {
         if ($type == 'migrate') {
