@@ -58,4 +58,17 @@ class Session
 
         return $_SESSION[self::flashKey][$key]['value'];
     }
+
+    public function __destruct()
+    {
+        $messages = $_SESSION[self::flashKey];
+
+        foreach ($messages as $key => $message) {
+            if ($message['to_removed']) {
+                unset($messages[$key]);
+            }
+        }
+
+        $_SESSION[self::flashKey] = $messages;
+    }
 }
