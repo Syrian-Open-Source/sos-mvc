@@ -47,6 +47,7 @@ class AuthController extends BaseController
                 $user->name = $request->getAttribute('name');
                 $user->password = $request->getAttribute('name');
                 $user->save();
+                Application::$instance->session->setFlash('success',  'your register was success');
             }
             return Application::$instance->response->redirect('/');
 

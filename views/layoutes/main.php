@@ -1,3 +1,9 @@
+<?php
+
+use app\core\Application;
+
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -13,7 +19,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="/home">K-MVC</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse">
@@ -37,6 +44,11 @@
 </nav>
 
 <div class="container p-3">
+    <?php if (Application::$instance->session->getFlash('success')): ?>
+        <div class="alert alert-success">
+            <?php echo Application::$instance->session->getFlash('success') ?>
+        </div>
+    <?php endif; ?>
     {{content}}
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>

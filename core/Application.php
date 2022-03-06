@@ -75,7 +75,7 @@ class Application
      * @author karam mustafa
      * @var \app\controllers\Session
      */
-    private Session $session;
+    public Session $session;
 
     /**
      * @return \app\controllers\BaseController
