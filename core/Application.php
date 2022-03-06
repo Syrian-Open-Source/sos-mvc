@@ -4,7 +4,6 @@ namespace app\core;
 
 
 use app\controllers\BaseController;
-use app\controllers\Session;
 
 /**
  * Class Application

@@ -9,7 +9,7 @@ class Session
     /**
      *
      */
-    protected const flashKey = 'flash_messaged';
+    protected const flashKey = 'flash_messages';
 
     /**
      * Session constructor.
@@ -17,7 +17,7 @@ class Session
     public function __construct()
     {
         session_start();
-        $messages = $_SESSION[self::flashKey];
+        $messages = $_SESSION[self::flashKey] ?? [];
 
         foreach ($messages as $key => $message) {
             $message['to_removed'] = true;

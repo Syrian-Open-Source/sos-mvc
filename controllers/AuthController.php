@@ -44,16 +44,15 @@ class AuthController extends BaseController
         $user->load($request->all());
         if ($request->isPost()) {
             if ($user->validate()) {
+
                 $user->name = $request->getAttribute('name');
                 $user->password = $request->getAttribute('name');
                 $user->save();
-                Application::$instance->session->setFlash('success',  'your register was success');
+                Application::$instance->session->setFlash('success', 'your register was success');
+                return Application::$instance->response->redirect('/');
             }
-            return Application::$instance->response->redirect('/');
-
         }
         $this->setLayout('auth');
-
         return $this->render('register', [
             'model' => $user
         ]);
