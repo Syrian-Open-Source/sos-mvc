@@ -19,7 +19,7 @@ class Session
         session_start();
         $messages = $_SESSION[self::flashKey] ?? [];
 
-        foreach ($messages as $key => $message) {
+        foreach ($messages as $key => &$message) {
             $message['to_removed'] = true;
         }
 
@@ -59,11 +59,14 @@ class Session
         return $_SESSION[self::flashKey][$key]['value'];
     }
 
+    /**
+     * class destructor
+     */
     public function __destruct()
     {
         $messages = $_SESSION[self::flashKey];
 
-        foreach ($messages as $key => $message) {
+        foreach ($messages as $key => &$message) {
             if ($message['to_removed']) {
                 unset($messages[$key]);
             }

@@ -86,6 +86,14 @@ abstract class Model
     /**
      * description
      *
+     * @return array
+     * @author karam mustafa
+     */
+    abstract public function labels();
+
+    /**
+     * description
+     *
      * @return bool
      * @author karam mustafa
      */
@@ -122,7 +130,7 @@ abstract class Model
                     $statement->execute();
                     $records = $statement->fetchObject();
                     if ($records) {
-                        $this->dispatchError($attr,self::RULE_UNIQUE ,['field' => $attr]);
+                        $this->dispatchError($attr, self::RULE_UNIQUE, ['field' => $attr]);
                     }
                 }
             }
@@ -174,6 +182,19 @@ abstract class Model
     public function hasError($attr)
     {
         return $this->errors[$attr] ?? false;
+    }
+
+    /**
+     * description
+     *
+     * @param  string $key
+     *
+     * @return bool|mixed
+     * @author karam mustafa
+     */
+    public function getLabel($key)
+    {
+        return $this->labels()[$key] ?? $key;
     }
 
     /**

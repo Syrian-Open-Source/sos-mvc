@@ -49,4 +49,16 @@ class User extends DbModel
     {
         return 'users';
     }
+
+    /**
+     * @inheritDoc
+     */
+    public function labels()
+    {
+        return [
+            'name' => 'full name',
+            'password' => 'your password',
+            'confirmPassword' => 'confirm password',
+        ];
+    }
 }
