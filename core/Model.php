@@ -99,7 +99,7 @@ abstract class Model
     }
 
     /**
-     * description
+     * set model rule
      *
      * @return mixed
      * @author karam mustafa
