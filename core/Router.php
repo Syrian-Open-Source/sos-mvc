@@ -22,14 +22,14 @@ class Router
      * @author karam mustafa
      * @var \app\core\Response
      */
-    protected $response;
+    protected Response $response;
     /**
      * instance of request class
      *
      * @author karam mustafa
      * @var \app\core\Request
      */
-    private $request;
+    private Request $request;
 
     /**
      * Router constructor.
