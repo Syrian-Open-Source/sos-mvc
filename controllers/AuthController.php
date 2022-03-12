@@ -4,8 +4,10 @@
 namespace app\controllers;
 
 
-use app\core\Application;
+use app\core\Model;
 use app\core\Request;
+use app\core\Response;
+use app\models\LoginForm;
 use app\models\User;
 
 /**
@@ -18,6 +20,24 @@ class AuthController extends BaseController
 {
 
     /**
+     *
+     * @author karam mustafa
+     * @var \app\core\Session
+     */
+    private $session;/**
+ *
+ * @author karam mustafa
+ * @var \app\core\Response
+ */
+    private Response $response;
+
+    public function __construct()
+    {
+        $this->session = app()->session;
+        $this->response = app()->response;
+    }
+
+    /**
      * description
      *
      * @param  \app\core\Request  $request
@@ -27,9 +47,17 @@ class AuthController extends BaseController
      */
     public function login(Request $request)
     {
+        $model = new LoginForm();
+
+        if ($request->isPost()) {
+            $model->load($request->all());
+
+            if ($model->validate() && $model->login()) {
+                dd(1);
+            }
+        }
         $this->setLayout('auth');
 
-        $user = new User();
 
         return $this->render('login', [
             'model' => $user
@@ -50,15 +78,15 @@ class AuthController extends BaseController
         $user->load($request->all());
         if ($request->isPost()) {
             if ($user->validate()) {
-
                 $user->name = $request->getAttribute('name');
                 $user->password = $request->getAttribute('name');
                 $user->save();
-                Application::$instance->session->setFlash('success', 'your register was success');
-                return Application::$instance->response->redirect('/');
+                $this->session->setFlash('success', 'your register was success');
+                return $this->response->redirect('/');
             }
         }
         $this->setLayout('auth');
+
         return $this->render('register', [
             'model' => $user
         ]);
