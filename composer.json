@@ -12,7 +12,7 @@
             "app\\" : "./"
         },
         "files": [
-            "./core/Functions.php"
+            "./core/Helpers/Functions.php"
         ]
     },
     "require": {
