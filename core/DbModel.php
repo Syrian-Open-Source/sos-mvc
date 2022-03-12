@@ -60,11 +60,11 @@ abstract class DbModel extends Model
         $tableName = static::tableName();
         $attributes = array_keys($where);
 
-        $sql = implode('AND', array_map(fn($attr) => "$attr", $attributes));
-        $statement = self::prepare("SELECT * FROM $tableName WHERE $sql");
+        $sql = implode('AND', array_map(fn($attr) => "$attr = :$attr", $attributes));
 
-        foreach ($attributes as $attr){
-            $statement->bindValue(":$attr", $this->{$attr});
+        $statement = self::prepare("SELECT * FROM $tableName WHERE $sql");
+        foreach ($where as $key => $value){
+            $statement->bindValue(":$key", $value);
         }
 
         $statement->execute();

@@ -31,12 +31,11 @@ class LoginForm extends Model
             $this->dispatchError('name', 'name does not exist.');
             return false;
         }
-
-        if (!password_verify($this->password,$user->password)){
-            $this->dispatchError('password', 'password is wrong');
-
-            return false;
-        }
+//        if (!password_verify($this->password,$user->password)){
+//            $this->dispatchError('password', 'password is wrong');
+//
+//            return false;
+//        }
 
         return $user;
 

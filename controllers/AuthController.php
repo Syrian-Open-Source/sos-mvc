@@ -53,7 +53,7 @@ class AuthController extends BaseController
             $model->load($request->all());
 
             if ($model->validate() && $model->login()) {
-                dd(1);
+                dd($model);
             }
         }
 
