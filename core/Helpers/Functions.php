@@ -20,3 +20,21 @@ if (!function_exists('env')) {
     }
 
 }
+
+if (!function_exists('app')) {
+
+    function app()
+    {
+        return \app\core\Application::$instance;
+    }
+
+}
+if (!function_exists('route')) {
+
+    function route()
+    {
+        return \app\core\Application::$instance->router;
+    }
+
+}
+

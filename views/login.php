@@ -1,1 +1,7 @@
-<h1>login page</h1>
+<?php $form = \app\core\Forms\From::begin('/login', 'post') ?>
+<?php echo $form->field($model, 'name') ?>
+<?php echo $form->field($model, 'password')->passwordField() ?>
+<div class="col-auto">
+    <button type="submit" class="btn btn-primary mb-3">Submit</button>
+</div>
+<?php echo $form->end(); ?>

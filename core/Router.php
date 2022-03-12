@@ -22,14 +22,14 @@ class Router
      * @author karam mustafa
      * @var \app\core\Response
      */
-    protected $response;
+    protected Response $response;
     /**
      * instance of request class
      *
      * @author karam mustafa
      * @var \app\core\Request
      */
-    private $request;
+    private Request $request;
 
     /**
      * Router constructor.
@@ -73,10 +73,13 @@ class Router
      * description
      *
      * @return mixed|string
+     * @throws \Exception
      * @author karam mustafa
      */
     public function resolve()
     {
+        $this->loadRouteFrom(__DIR__."./../routes/web.php");
+
         $path = $this->request->getPath();
 
         $method = $this->request->method();
@@ -216,6 +219,24 @@ class Router
         }
 
         //ToDO check if the framework has not found page internally
+    }
+
+    /**
+     * description
+     *
+     * @param  string  $path
+     *
+     * @return mixed
+     * @throws \Exception
+     * @author karam mustafa
+     */
+    private function loadRouteFrom(string $path)
+    {
+        if (file_exists($path)){
+            return include_once $path;
+        }
+
+        throw new \Exception("route file is not exist in path $path");
     }
 
 

@@ -107,19 +107,19 @@ abstract class Model
                     $ruleName = $rule['rule'] ?? $rule[0];
                 }
                 if ($ruleName == self::RULE_REQUIRED && !$value) {
-                    $this->dispatchError($attr, $ruleName);
+                    $this->dispatchErrorForRule($attr, $ruleName);
                 }
                 if ($ruleName == self::RULE_EMAIL && !filter_var($value, FILTER_VALIDATE_EMAIL)) {
-                    $this->dispatchError($attr, $ruleName);
+                    $this->dispatchErrorForRule($attr, $ruleName);
                 }
                 if ($ruleName == self::RULE_MIN && strlen($value) < $rule[self::RULE_MIN]) {
-                    $this->dispatchError($attr, $ruleName, $rule);
+                    $this->dispatchErrorForRule($attr, $ruleName, $rule);
                 }
                 if ($ruleName == self::RULE_MAX && strlen($value) > $rule[self::RULE_MAX]) {
-                    $this->dispatchError($attr, $ruleName, $rule);
+                    $this->dispatchErrorForRule($attr, $ruleName, $rule);
                 }
                 if ($ruleName == self::RULE_MATCH && $value !== $this->{$rule['match']}) {
-                    $this->dispatchError($attr, $ruleName, $rule);
+                    $this->dispatchErrorForRule($attr, $ruleName, $rule);
                 }
                 if (is_array($rule) && ($ruleName) == self::RULE_UNIQUE) {
                     $className = $rule['class'];
@@ -130,7 +130,7 @@ abstract class Model
                     $statement->execute();
                     $records = $statement->fetchObject();
                     if ($records) {
-                        $this->dispatchError($attr, self::RULE_UNIQUE, ['field' => $attr]);
+                        $this->dispatchErrorForRule($attr, self::RULE_UNIQUE, ['field' => $attr]);
                     }
                 }
             }
@@ -148,9 +148,22 @@ abstract class Model
      *
      * @author karam mustafa
      */
-    private function dispatchError($attr, $ruleName, $rules = [])
+    private function dispatchErrorForRule($attr, $ruleName, $rules = [])
     {
         $this->errors[$attr][] = $this->resolveValidationErrorMessages($ruleName, $rules);
+    }
+
+    /**
+     * description
+     *
+     * @param  string  $attr
+     * @param  string  $message
+     *
+     * @author karam mustafa
+     */
+    public function dispatchError(string $attr, string $message)
+    {
+        $this->errorMessages[$attr][] = $message;
     }
 
     /**
