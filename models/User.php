@@ -20,14 +20,7 @@ class User extends DbModel
         return parent::save();
     }
 
-    public function login(){
 
-        $user = User::find(['name' => $this->name]);
-
-        if ($user){
-            $this->dispatchError('name', 'name does not exist.');
-        }
-    }
     public function rules()
     {
         return [

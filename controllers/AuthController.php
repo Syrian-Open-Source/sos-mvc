@@ -56,11 +56,11 @@ class AuthController extends BaseController
                 dd(1);
             }
         }
+
         $this->setLayout('auth');
 
-
         return $this->render('login', [
-            'model' => $user
+            'model' => $model
         ]);
     }
 
