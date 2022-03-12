@@ -20,3 +20,13 @@ if (!function_exists('env')) {
     }
 
 }
+
+if (!function_exists('app')) {
+
+    function app()
+    {
+        return \app\core\Application::$instance;
+    }
+
+}
+
