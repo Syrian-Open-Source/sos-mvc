@@ -22,12 +22,18 @@ class AuthController extends BaseController
      *
      * @param  \app\core\Request  $request
      *
+     * @return string
      * @author karam mustafa
      */
     public function login(Request $request)
     {
         $this->setLayout('auth');
-        $this->render('login');
+
+        $user = new User();
+
+        return $this->render('login', [
+            'model' => $user
+        ]);
     }
 
     /**
