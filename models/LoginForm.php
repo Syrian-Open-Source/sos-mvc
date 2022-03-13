@@ -4,6 +4,7 @@
 namespace app\models;
 
 
+use app\core\Auth;
 use app\core\Model;
 
 class LoginForm extends Model
@@ -37,8 +38,7 @@ class LoginForm extends Model
 //            return false;
 //        }
 
-        return $user;
-
+        return (new Auth())->login($user);
     }
 
     /**
