@@ -121,7 +121,13 @@ class Application
      */
     public function run()
     {
-        return $this->router->resolve();
+        try {
+            return $this->router->resolve();
+        } catch (\Exception $e) {
+            return $this->router->renderView('error', [
+                'message' => $e->getMessage()
+            ]);
+        }
     }
 
 }
