@@ -41,5 +41,5 @@ interface Authenticatable
      * @return \app\core\DbModel
      * @author karam mustafa
      */
-    public function user(): ?DbModel;
+    public function user();
 }

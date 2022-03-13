@@ -55,9 +55,9 @@ class Auth implements Authenticatable
      * @return \app\core\DbModel
      * @author karam mustafa
      */
-    public function user(): ?DbModel
+    public function user()
     {
-        return (new User)->find(['id' => app()->session->get('id')]) ?? [];
+        return (new User)->find(['id' => app()->session->get('id')]);
     }
 
 
@@ -69,6 +69,6 @@ class Auth implements Authenticatable
      */
     public function check(): bool
     {
-        return !empty($this->user());
+        return !empty($this->user() ?? []);
     }
 }
