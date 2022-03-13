@@ -122,6 +122,7 @@ class Router
 
         if (is_array($callback)) {
             $callback[0] = Application::$instance->controller = new $callback[0]();
+            Application::$instance->controller->action = $callback[1];
         }
 
         return call_user_func($callback, $this->request);
@@ -232,7 +233,7 @@ class Router
      */
     private function loadRouteFrom(string $path)
     {
-        if (file_exists($path)){
+        if (file_exists($path)) {
             return include_once $path;
         }
 

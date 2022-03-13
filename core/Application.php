@@ -44,7 +44,7 @@ class Application
      * @author karam mustafa
      * @var \app\core\Request
      */
-    private $request;
+    public $request;
 
     /**
      * instance of response class
@@ -117,6 +117,7 @@ class Application
      * main run function
      *
      * @return mixed|string
+     * @throws \Exception
      * @author karam mustafa
      */
     public function run()

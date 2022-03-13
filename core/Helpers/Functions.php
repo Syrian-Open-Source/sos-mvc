@@ -46,4 +46,12 @@ if (!function_exists('route')) {
     }
 
 }
+if (!function_exists('request')) {
+
+    function request()
+    {
+        return \app\core\Application::$instance->request;
+    }
+
+}
 
