@@ -31,4 +31,10 @@ class Auth implements Authenticatable
     {
         return User::find(['id' => app()->session->get('id')]) ?? [];
     }
+
+
+    public function check(): bool
+    {
+        return !empty($this->user());
+    }
 }
