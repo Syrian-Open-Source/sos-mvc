@@ -29,6 +29,7 @@ abstract class DbModel extends Model
      */
     abstract public function tableName(): string;
 
+
     /**
      * description
      *
@@ -42,7 +43,7 @@ abstract class DbModel extends Model
 
         $params = array_map(fn($param) => ":$param", $attributes);
 
-        $statement = $this->prepare("INSERT INTO $table (".implode(",", $attributes).") 
+        $statement = static::prepare("INSERT INTO $table (".implode(",", $attributes).") 
                                          VALUES (".implode(",", $params).")");
 
         foreach ($attributes as $attribute) {
@@ -54,6 +55,23 @@ abstract class DbModel extends Model
     }
 
 
+    public function find($where)
+    {
+        $tableName = static::tableName();
+        $attributes = array_keys($where);
+
+        $sql = implode('AND', array_map(fn($attr) => "$attr = :$attr", $attributes));
+
+        $statement = self::prepare("SELECT * FROM $tableName WHERE $sql");
+        foreach ($where as $key => $value){
+            $statement->bindValue(":$key", $value);
+        }
+
+        $statement->execute();
+
+        return $statement->fetchObject(static::class);
+    }
+
     /**
      * description
      *
@@ -62,7 +80,7 @@ abstract class DbModel extends Model
      * @return bool|\PDOStatement
      * @author karam mustafa
      */
-    public function prepare(string $sql)
+    public static function prepare(string $sql)
     {
         return Application::$instance->db->pdo->prepare($sql);
     }

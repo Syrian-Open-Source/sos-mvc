@@ -29,6 +29,51 @@ class Session
     /**
      * description
      *
+     * @param  string  $key
+     * @param  mixed  $value
+     *
+     * @return \app\core\Session
+     * @author karam mustafa
+     */
+    public function set($key, $value)
+    {
+        $_SESSION[$key] = $value;
+
+        return $this;
+    }
+
+    /**
+     * description
+     *
+     * @param  string  $key
+     *
+     * @return void
+     * @author karam mustafa
+     */
+    public function remove($key)
+    {
+       if (isset($_SESSION[$key])){
+           unset($_SESSION[$key]);
+       }
+    }
+
+    /**
+     * description
+     *
+     * @param $key
+     *
+     * @return mixed
+     * @author karam mustafa
+     */
+    public function get($key)
+    {
+        return $_SESSION[$key] ?? false;
+
+    }
+
+    /**
+     * description
+     *
      * @param $key
      * @param $message
      *

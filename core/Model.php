@@ -163,7 +163,7 @@ abstract class Model
      */
     public function dispatchError(string $attr, string $message)
     {
-        $this->errorMessages[$attr][] = $message;
+        $this->errors[$attr][] = $message;
     }
 
     /**
