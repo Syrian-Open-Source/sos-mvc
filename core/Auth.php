@@ -55,9 +55,9 @@ class Auth implements Authenticatable
      * @return \app\core\DbModel
      * @author karam mustafa
      */
-    public function user(): DbModel
+    public function user(): ?DbModel
     {
-        return User::find(['id' => app()->session->get('id')]) ?? [];
+        return (new User)->find(['id' => app()->session->get('id')]) ?? [];
     }
 
 

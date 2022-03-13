@@ -28,10 +28,11 @@ class AuthMiddleware implements Middleware
      *
      * @param $actions
      */
-    public function __construct($actions)
+    public function __construct($actions = [])
     {
 
         $this->actions = $actions;
+
     }
 
     /**

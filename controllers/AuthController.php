@@ -8,6 +8,7 @@ use app\core\Auth;
 use app\core\Model;
 use app\core\Request;
 use app\core\Response;
+use app\middleware\AuthMiddleware;
 use app\models\LoginForm;
 use app\models\User;
 
@@ -38,6 +39,8 @@ class AuthController extends BaseController
     {
         $this->session = app()->session;
         $this->response = app()->response;
+
+        $this->registerMiddleware(new AuthMiddleware(['register']));
 
     }
 
