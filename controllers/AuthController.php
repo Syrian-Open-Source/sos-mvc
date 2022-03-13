@@ -4,6 +4,7 @@
 namespace app\controllers;
 
 
+use app\core\Auth;
 use app\core\Model;
 use app\core\Request;
 use app\core\Response;
@@ -24,11 +25,12 @@ class AuthController extends BaseController
      * @author karam mustafa
      * @var \app\core\Session
      */
-    private $session;/**
- *
- * @author karam mustafa
- * @var \app\core\Response
- */
+    private $session;
+    /**
+     *
+     * @author karam mustafa
+     * @var \app\core\Response
+     */
     private Response $response;
 
     public function __construct()
@@ -53,7 +55,7 @@ class AuthController extends BaseController
             $model->load($request->all());
 
             if ($model->validate() && $model->login()) {
-                dd($model);
+                $this->response->redirect('/');
             }
         }
 
@@ -90,5 +92,12 @@ class AuthController extends BaseController
         return $this->render('register', [
             'model' => $user
         ]);
+    }
+
+    public function logout()
+    {
+        (new Auth())->logout(User::find(['id' => $this->session->get('user')]));
+
+        return $this->response->redirect('/');
     }
 }

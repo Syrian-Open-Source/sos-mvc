@@ -16,4 +16,5 @@ route()->get('/login', [AuthController::class, 'login']);
 route()->post('/login', [AuthController::class, 'login']);
 route()->get('/register', [AuthController::class, 'register']);
 route()->post('/register', [AuthController::class, 'register']);
+route()->get('/logout', [AuthController::class, 'logout']);
 
