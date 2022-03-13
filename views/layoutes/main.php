@@ -35,6 +35,10 @@ use app\core\Application;
                     <a class="nav-link" href="/contact">Contact</a>
                 </li>
             </ul>
+            <?php if (app()->session->get('user')): ?>
+                <b> Hello <?php echo app()->session->get('userName') ?></b>
+            <?php endif; ?>
+
             <?php if (!app()->session->get('user')): ?>
                 <form class="d-flex">
                     <a class="nav-link active" aria-current="page" href="/login">Login</a>

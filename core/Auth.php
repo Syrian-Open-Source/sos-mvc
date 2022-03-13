@@ -14,6 +14,7 @@ class Auth implements Authenticatable
     public function login($user): bool
     {
         app()->session->set('user', $user->id);
+        app()->session->set('userName', $user->name);
 
         return true;
 
