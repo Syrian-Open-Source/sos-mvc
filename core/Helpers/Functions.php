@@ -55,3 +55,12 @@ if (!function_exists('request')) {
 
 }
 
+if (!function_exists('controller')) {
+
+    function controller()
+    {
+        return \app\core\Application::$instance->controller;
+    }
+
+}
+
