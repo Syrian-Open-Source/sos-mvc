@@ -45,6 +45,21 @@ class Session
     /**
      * description
      *
+     * @param  string  $key
+     *
+     * @return void
+     * @author karam mustafa
+     */
+    public function remove($key)
+    {
+       if (isset($_SESSION[$key])){
+           unset($_SESSION[$key]);
+       }
+    }
+
+    /**
+     * description
+     *
      * @param $key
      *
      * @return mixed
