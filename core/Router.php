@@ -123,6 +123,9 @@ class Router
         if (is_array($callback)) {
             $callback[0] = Application::$instance->controller = new $callback[0]();
             Application::$instance->controller->action = $callback[1];
+
+            $this->executeMiddleware();
+
         }
 
         return call_user_func($callback, $this->request);
@@ -238,6 +241,13 @@ class Router
         }
 
         throw new \Exception("route file is not exist in path $path");
+    }
+
+    private function executeMiddleware()
+    {
+        foreach (Application::$instance->controller->getMiddleware() as $middleware) {
+            $middleware->execute();
+        }
     }
 
 
