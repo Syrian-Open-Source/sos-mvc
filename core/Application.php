@@ -36,7 +36,7 @@ class Application
      * @author karam mustafa
      * @var \app\core\Router
      */
-    public $router;
+    public Router $router;
 
     /**
      * instance of request class
@@ -44,7 +44,7 @@ class Application
      * @author karam mustafa
      * @var \app\core\Request
      */
-    private $request;
+    public Request $request;
 
     /**
      * instance of response class
@@ -52,7 +52,7 @@ class Application
      * @author karam mustafa
      * @var \app\core\Response
      */
-    public $response;
+    public Response $response;
 
     /**
      * instance of base controller class
@@ -60,7 +60,7 @@ class Application
      * @author karam mustafa
      * @var \app\controllers\BaseController
      */
-    public $controller;
+    public BaseController $controller;
 
     /**
      * instance of database class
@@ -68,7 +68,7 @@ class Application
      * @author karam mustafa
      * @var \app\core\Database
      */
-    public $db;
+    public Database $db;
     /**
      *
      * @author karam mustafa
@@ -105,7 +105,6 @@ class Application
     {
         static::$ROOT_DIR = $rootDir;
         self::$instance = $this;
-        self::$instance = $this;
         $this->request = new Request();
         $this->response = new Response();
         $this->session = new Session();
@@ -117,6 +116,7 @@ class Application
      * main run function
      *
      * @return mixed|string
+     * @throws \Exception
      * @author karam mustafa
      */
     public function run()

@@ -29,11 +29,37 @@ if (!function_exists('app')) {
     }
 
 }
+
+if (!function_exists('auth')) {
+
+    function auth()
+    {
+        return new \app\core\Auth();
+    }
+
+}
 if (!function_exists('route')) {
 
     function route()
     {
         return \app\core\Application::$instance->router;
+    }
+
+}
+if (!function_exists('request')) {
+
+    function request()
+    {
+        return \app\core\Application::$instance->request;
+    }
+
+}
+
+if (!function_exists('controller')) {
+
+    function controller()
+    {
+        return \app\core\Application::$instance->controller;
     }
 
 }

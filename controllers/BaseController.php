@@ -5,6 +5,7 @@ namespace app\controllers;
 
 
 use app\core\Application;
+use app\core\Contracts\Middleware;
 
 class BaseController
 {
@@ -15,6 +16,12 @@ class BaseController
      * @var string
      */
     public $layout = 'main';
+    /**
+     *
+     * @author karam mustafa
+     * @var Middleware[]
+     */
+    private $middleware;
 
     /**
      * description
@@ -40,4 +47,19 @@ class BaseController
     {
         return Application::$instance->router->renderView(...$params);
     }
+
+    public function registerMiddleware(Middleware $middleware)
+    {
+        $this->middleware[] = $middleware;
+    }
+
+    /**
+     * @return array
+     * @author karam mustafa
+     */
+    public function getMiddleware(): array
+    {
+        return $this->middleware;
+    }
+
 }
