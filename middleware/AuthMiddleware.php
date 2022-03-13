@@ -41,7 +41,7 @@ class AuthMiddleware implements Middleware
      */
     public function execute()
     {
-        if (!auth()->check() && !in_array(request()->controller->actions, $this->actions)){
+        if (!auth()->check() && !in_array(controller()->actions, $this->actions)){
 
             throw new ForbiddenException();
         }
