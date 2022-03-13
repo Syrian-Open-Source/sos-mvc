@@ -29,6 +29,15 @@ if (!function_exists('app')) {
     }
 
 }
+
+if (!function_exists('auth')) {
+
+    function auth()
+    {
+        return new \app\core\Auth();
+    }
+
+}
 if (!function_exists('route')) {
 
     function route()
