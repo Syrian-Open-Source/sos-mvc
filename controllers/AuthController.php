@@ -20,6 +20,7 @@ use app\models\User;
 class AuthController extends BaseController
 {
 
+
     /**
      *
      * @author karam mustafa
@@ -37,6 +38,7 @@ class AuthController extends BaseController
     {
         $this->session = app()->session;
         $this->response = app()->response;
+
     }
 
     /**
