@@ -35,11 +35,14 @@ class View
     public function renderView($viewName, $params = [])
     {
         if ($this->checkIsValidView($viewName)) {
-            $layoutContent = $this->renderContent();
 
+            // load profile first will makes us able to load variable from child
+            // into parent layout, so we can implement push something in the future.
             $viewContent = $this->renderOnlyView("$viewName", $params);
 
-            return print(str_replace("{{content}}", $viewContent, $layoutContent));
+            $layoutContent = $this->renderContent();
+
+            return print($this->renderTags($viewContent, $layoutContent));
         }
 
         return $this->notFoundRoute();
@@ -126,6 +129,20 @@ class View
         }
 
         //ToDO check if the framework has not found page internally
+    }
+
+    /**
+     * description
+     *
+     * @param  string  $viewContent
+     * @param  string  $layoutContent
+     *
+     * @return string|string[]
+     * @author karam mustafa
+     */
+    private function renderTags(string $viewContent, string $layoutContent)
+    {
+        return str_replace("{{content}}", $viewContent, $layoutContent);
     }
 
 }
