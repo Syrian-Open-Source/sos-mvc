@@ -30,6 +30,6 @@ class ProfileController extends BaseController
     }
 
     public function profile(){
-        dd(1);
+        $this->render('profile');
     }
 }
