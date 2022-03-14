@@ -19,9 +19,9 @@ class AuthMiddleware implements Middleware
     /**
      *
      * @author karam mustafa
-     * @var
+     * @var array
      */
-    protected $actions;
+    public array $actions;
 
     /**
      * AuthMiddleware constructor.
@@ -30,9 +30,7 @@ class AuthMiddleware implements Middleware
      */
     public function __construct($actions = [])
     {
-
         $this->actions = $actions;
-
     }
 
     /**
@@ -41,7 +39,7 @@ class AuthMiddleware implements Middleware
      */
     public function execute()
     {
-        if (!auth()->check() && !in_array(controller()->actions, $this->actions)){
+        if (!auth()->check() && !in_array(controller()->action, $this->actions)) {
 
             throw new ForbiddenException();
         }

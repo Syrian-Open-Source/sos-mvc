@@ -121,9 +121,10 @@ class Router
         }
 
         if (is_array($callback)) {
-            $callback[0] = Application::$instance->controller = new $callback[0]();
-            Application::$instance->controller->action = $callback[1];
-
+            $controller = new $callback[0]();
+            Application::$instance->controller = $controller;
+            $controller->action = $callback[1];
+            $callback[0] = $controller;
             $this->executeMiddleware();
 
         }
@@ -144,7 +145,6 @@ class Router
     public function renderView($viewName, $params = [])
     {
         if ($this->checkIsValidView($viewName)) {
-
             $layoutContent = $this->renderContent();
 
             $viewContent = $this->renderOnlyView("$viewName", $params);
