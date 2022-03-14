@@ -21,7 +21,7 @@ class BaseController
      * @author karam mustafa
      * @var Middleware[]
      */
-    private $middleware;
+    private array $middleware;
 
     /**
      * description
@@ -45,10 +45,10 @@ class BaseController
      */
     public function render(...$params)
     {
-        return Application::$instance->router->renderView(...$params);
+        return Application::$instance->view->renderView(...$params);
     }
 
-    public function registerMiddleware(Middleware $middleware)
+    public function registerMiddleware(?Middleware $middleware)
     {
         $this->middleware[] = $middleware;
     }
@@ -57,7 +57,7 @@ class BaseController
      * @return array
      * @author karam mustafa
      */
-    public function getMiddleware(): array
+    public function getMiddleware()
     {
         return $this->middleware;
     }

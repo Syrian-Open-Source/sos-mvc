@@ -3,9 +3,5 @@
 /** @var  string $message */
 ?>
 <b style="color: red">
-    <?php
-
-    echo $message
-
-    ?>
+    <?php echo $message ?>
 </b>

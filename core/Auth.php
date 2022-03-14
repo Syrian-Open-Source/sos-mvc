@@ -69,6 +69,6 @@ class Auth implements Authenticatable
      */
     public function check(): bool
     {
-        return !empty($this->user() ?? []);
+        return app()->session->get('user');
     }
 }

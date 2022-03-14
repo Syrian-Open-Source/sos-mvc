@@ -13,7 +13,7 @@ use app\core\Application;
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-    <title>Document</title>
+    <title><?php echo $this->title ?? 'Page Name' ?> </title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -31,21 +31,24 @@ use app\core\Application;
                 <li class="nav-item">
                     <a class="nav-link" href="/about">About</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/contact">Contact</a>
-                </li>
+
+                <?php if (auth()->check()): ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/profile">Profile</a>
+                    </li>
+                <?php endif; ?>
             </ul>
-            <?php if (app()->session->get('user')): ?>
+            <?php if (auth()->check()): ?>
                 <b> Hello <?php echo app()->session->get('userName') ?></b>
             <?php endif; ?>
 
-            <?php if (!app()->session->get('user')): ?>
+            <?php if (!auth()->check()): ?>
                 <form class="d-flex">
                     <a class="nav-link active" aria-current="page" href="/login">Login</a>
                     <a class="nav-link active" aria-current="page" href="/register">Register</a>
                 </form>
             <?php endif; ?>
-            <?php if (app()->session->get('user')): ?>
+            <?php if (auth()->check()): ?>
                 <form class="d-flex">
                     <a class="nav-link active" aria-current="page" href="/logout">logout</a>
                 </form>
