@@ -72,9 +72,15 @@ class Application
     /**
      *
      * @author karam mustafa
-     * @var \app\controllers\Session
+     * @var \app\core\Session
      */
     public Session $session;
+    /**
+     *
+     * @author karam mustafa
+     * @var \app\core\View
+     */
+    public View $view;
 
     /**
      * @return \app\controllers\BaseController
@@ -108,6 +114,7 @@ class Application
         $this->request = new Request();
         $this->response = new Response();
         $this->session = new Session();
+        $this->view = new View();
         $this->router = new Router($this->request, $this->response);
         $this->db = new Database($config['db']);
     }
@@ -124,7 +131,7 @@ class Application
         try {
             return $this->router->resolve();
         } catch (\Exception $e) {
-            return $this->router->renderView('error', [
+            return $this->view->renderView('error', [
                 'message' => $e->getMessage()
             ]);
         }

@@ -45,7 +45,7 @@ class BaseController
      */
     public function render(...$params)
     {
-        return Application::$instance->router->renderView(...$params);
+        return Application::$instance->view->renderView(...$params);
     }
 
     public function registerMiddleware(?Middleware $middleware)
