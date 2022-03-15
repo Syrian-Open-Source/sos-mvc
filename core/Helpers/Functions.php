@@ -63,4 +63,12 @@ if (!function_exists('controller')) {
     }
 
 }
+if (!function_exists('view')) {
+
+    function view()
+    {
+        return \app\core\Application::$instance->view;
+    }
+
+}
 
