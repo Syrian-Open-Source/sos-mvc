@@ -21,7 +21,7 @@ class BaseController
      * @author karam mustafa
      * @var Middleware[]
      */
-    private $middleware;
+    private array $middleware;
 
     /**
      * description
