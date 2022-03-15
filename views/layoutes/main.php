@@ -31,21 +31,24 @@ use app\core\Application;
                 <li class="nav-item">
                     <a class="nav-link" href="/about">About</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/contact">Contact</a>
-                </li>
+
+                <?php if (auth()->check()): ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/profile">Profile</a>
+                    </li>
+                <?php endif; ?>
             </ul>
-            <?php if (app()->session->get('user')): ?>
+            <?php if (auth()->check()): ?>
                 <b> Hello <?php echo app()->session->get('userName') ?></b>
             <?php endif; ?>
 
-            <?php if (!app()->session->get('user')): ?>
+            <?php if (!auth()->check()): ?>
                 <form class="d-flex">
                     <a class="nav-link active" aria-current="page" href="/login">Login</a>
                     <a class="nav-link active" aria-current="page" href="/register">Register</a>
                 </form>
             <?php endif; ?>
-            <?php if (app()->session->get('user')): ?>
+            <?php if (auth()->check()): ?>
                 <form class="d-flex">
                     <a class="nav-link active" aria-current="page" href="/logout">logout</a>
                 </form>

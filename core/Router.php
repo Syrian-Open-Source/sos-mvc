@@ -2,6 +2,9 @@
 
 namespace app\core;
 
+use app\controllers\BaseController;
+use app\core\Contracts\Middleware;
+
 /**
  * Class Router
  *
@@ -49,11 +52,14 @@ class Router
      * @param  string  $path
      * @param  mixed  $callback
      *
+     * @return \app\core\Router
      * @author karam mustafa
      */
     public function get($path, $callback)
     {
         $this->routes['get'][$path] = $callback;
+        return $this;
+
     }
 
     /**
@@ -62,11 +68,14 @@ class Router
      * @param  string  $path
      * @param  mixed  $callback
      *
+     * @return \app\core\Router
      * @author karam mustafa
      */
     public function post($path, $callback)
     {
         $this->routes['post'][$path] = $callback;
+
+        return $this;
     }
 
     /**
@@ -126,7 +135,6 @@ class Router
             $controller->action = $callback[1];
             $callback[0] = $controller;
             $this->executeMiddleware();
-
         }
 
         return call_user_func($callback, $this->request);
@@ -245,9 +253,19 @@ class Router
 
     private function executeMiddleware()
     {
-        foreach (Application::$instance->controller->getMiddleware() as $middleware) {
+        foreach (Application::$instance->controller->getMiddleware() ?? [] as $middleware) {
             $middleware->execute();
         }
+    }
+
+    public function middleware(?Middleware $middleware)
+    {
+        if (!$middleware instanceof Middleware) {
+            throw new \Exception("$middleware must be type of middleware");
+        }
+        Application::$instance->controller->registerMiddleware($middleware);
+
+        return $this;
     }
 
 
