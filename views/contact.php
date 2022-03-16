@@ -3,7 +3,7 @@
 ?>
 <?php $this->title = 'Contact'; ?>
 
-<?php $form = app\core\Forms\From::open('/contact', 'POST')?>
+<?php $form = app\core\Forms\Form::open('/contact', 'POST')?>
 <?php echo $form->field($model, 'name')->type('text'); ?>
 <?php echo $form->field($model, 'email')->type('email'); ?>
 <?php echo $form->textAreaField($model, 'body'); ?>

@@ -15,27 +15,27 @@ use app\core\Model;
 abstract class BaseField
 {
     /**
-     *
+     * @var string
      */
     const TYPE_TEXT = 'text';
     /**
-     *
+     * @var string
      */
     const TYPE_PASSWORD = 'password';
     /**
-     *
+     * @var string
      */
     const TYPE_EMAIL = 'email';
     /**
-     *
+     * @var string
      */
     const TYPE_DATE = 'date';
     /**
-     *
+     * @var string
      */
     const TYPE_COLOR = 'color';
     /**
-     *
+     * @var string
      */
     const TYPE_TIME = 'time';
     /**

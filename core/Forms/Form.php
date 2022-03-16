@@ -6,13 +6,13 @@ namespace app\core\Forms;
 
 use app\core\Model;
 
-class From
+class Form
 {
 
     public static function open(...$args)
     {
         echo sprintf('<form action="%s" method="%s">', ...$args);
-        return new From();
+        return new Form();
     }
 
     public function close()
