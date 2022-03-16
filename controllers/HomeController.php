@@ -4,7 +4,7 @@
 namespace app\controllers;
 
 
-use app\core\Application;
+use app\models\ContactForm;
 
 /**
  * Class HomeController
@@ -28,7 +28,7 @@ class HomeController extends BaseController
 
     public function contact()
     {
-        $model = new ContactForm;
+        $model = new ContactForm();
         return $this->render('contact' , [
             'model' => $model
         ]);
