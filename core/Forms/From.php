@@ -9,13 +9,13 @@ use app\core\Model;
 class From
 {
 
-    public static function begin(...$args)
+    public static function open(...$args)
     {
         echo sprintf('<form action="%s" method="%s">', ...$args);
         return new From();
     }
 
-    public function end()
+    public function close()
     {
         echo '</form>';
     }

@@ -44,6 +44,12 @@ abstract class Model
      * @var array
      */
     public $errors = [];
+    /**
+     *
+     * @author karam mustafa
+     * @var array
+     */
+    public $attributes = [];
 
     /**
      *
@@ -58,6 +64,15 @@ abstract class Model
         self::RULE_MATCH => 'This field must be the same as {match}',
         self::RULE_UNIQUE => 'Record with with this {field} already exists',
     ];
+
+    public function __get($name)
+    {
+        if (!property_exists(__CLASS__,$name)){
+            $this->attributes[$name] = '';
+        }
+
+        return $this->attributes[$name];
+    }
 
     /**
      * description

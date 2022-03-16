@@ -4,6 +4,7 @@
 namespace app\core\Forms;
 
 
+use app\core\Forms\Contracts\FieldType;
 use app\core\Model;
 
 class Field
@@ -16,8 +17,8 @@ class Field
     const TYPE_COLOR = 'color';
     const TYPE_TIME = 'time';
 
-    public $model;
-    public $attribtue;
+    public Model $model;
+    public string $attribtue;
 
     /**
      * Field constructor.
@@ -55,6 +56,12 @@ class Field
     public function passwordField()
     {
         $this->type = self::TYPE_PASSWORD;
+        return $this;
+    }
+
+    public function type(string $type)
+    {
+        $this->type = $type;
         return $this;
     }
 
