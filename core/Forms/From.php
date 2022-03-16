@@ -22,6 +22,10 @@ class From
 
     public function field(Model $model, $attributes)
     {
-        return new Field($model, $attributes);
+        return new InputField($model, $attributes);
+    }
+    public function textAreaField(Model $model, $attributes)
+    {
+        return new TextAreaField($model, $attributes);
     }
 }

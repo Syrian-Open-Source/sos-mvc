@@ -6,7 +6,7 @@ namespace app\core\Forms;
 
 use app\core\Model;
 
-class Field extends BaseField
+class InputField extends BaseField
 {
 
     /**
