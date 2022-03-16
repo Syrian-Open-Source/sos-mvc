@@ -15,7 +15,7 @@ class BaseController
      * @author karam mustafa
      * @var string
      */
-    public $layout = 'main';
+    public string $layout = 'main';
     /**
      *
      * @author karam mustafa
@@ -59,7 +59,7 @@ class BaseController
      */
     public function getMiddleware()
     {
-        return $this->middleware;
+        return $this->middleware ?? [];
     }
 
 }

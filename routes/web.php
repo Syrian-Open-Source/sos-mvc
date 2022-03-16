@@ -18,4 +18,6 @@ route()->get('/register', [AuthController::class, 'register']);
 route()->post('/register', [AuthController::class, 'register']);
 route()->get('/logout', [AuthController::class, 'logout']);
 route()->get('/profile', [ProfileController::class, 'profile']);
+route()->get('/contact', [HomeController::class, 'contact']);
+route()->post('/contact', [HomeController::class, 'contact']);
 

@@ -1,16 +1,13 @@
-<form action="/contact" method="post">
-    <h1>form title is: <?php echo $title; ?></h1>
-    <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">First name</label>
-        <input type="text" name="first_name" class="form-control">
-    </div>
+<?php
+    /** @var  \app\models\ContactForm $model */
+?>
+<?php $this->title = 'Contact'; ?>
 
-    <div class="mb-3">
-        <label class="form-label">Last name</label>
-        <input type="text" name="last_name" class="form-control">
-    </div>
-    <div class="col-auto">
-        <button type="submit" class="btn btn-primary mb-3">Submit</button>
-    </div>
-
-</form>
+<?php $form = app\core\Forms\From::open('/contact', 'POST')?>
+<?php echo $form->field($model, 'name')->type('text'); ?>
+<?php echo $form->field($model, 'email')->type('email'); ?>
+<?php echo $form->textAreaField($model, 'body'); ?>
+<div class="col-auto">
+    <button type="submit" class="btn btn-primary mb-3">Submit</button>
+</div>
+<?php $form->close(); ?>
