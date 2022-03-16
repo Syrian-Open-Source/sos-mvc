@@ -1,3 +1,5 @@
+<?php $this->title = 'Login'; ?>
+
 <?php $form = \app\core\Forms\From::begin('/login', 'post') ?>
 <?php echo $form->field($model, 'name') ?>
 <?php echo $form->field($model, 'password')->passwordField() ?>

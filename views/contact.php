@@ -1,3 +1,5 @@
+<?php $this->title = 'Contact'; ?>
+
 <form action="/contact" method="post">
     <h1>form title is: <?php echo $title; ?></h1>
     <div class="mb-3">
