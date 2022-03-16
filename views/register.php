@@ -1,5 +1,7 @@
+<?php
+/** @var \app\models\User $model */
+?>
 <?php $this->title = 'Register'; ?>
-
 <?php $form = \app\core\Forms\From::open('/register', 'post') ?>
 <?php echo $form->field($model, 'name') ?>
 <?php echo $form->field($model, 'password')->passwordField() ?>
