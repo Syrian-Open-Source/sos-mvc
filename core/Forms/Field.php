@@ -9,9 +9,6 @@ use app\core\Model;
 class Field extends BaseField
 {
 
-    public Model $model;
-    public string $attribute;
-
     /**
      * Field constructor.
      *
@@ -21,36 +18,12 @@ class Field extends BaseField
     public function __construct(Model $model, $attribute)
     {
         $this->type = self::TYPE_TEXT;
-        $this->model = $model;
-        $this->attribute = $attribute;
-    }
-
-    public function __toString()
-    {
-        return sprintf('
-        <div class="mb-3">
-               <label class="form-label">%s</label>
-               %s
-               <div class="invalid-feedback">
-                   %s
-               </div>
-        </div>
-        ',
-            $this->model->getLabel($this->attribute),
-            $this->renderInput(),
-            $this->model->getError($this->attribute)
-        );
+        parent::__construct($model, $attribute);
     }
 
     public function passwordField()
     {
         $this->type = self::TYPE_PASSWORD;
-        return $this;
-    }
-
-    public function type(string $type)
-    {
-        $this->type = $type;
         return $this;
     }
 
