@@ -55,6 +55,14 @@ abstract class DbModel extends Model
     }
 
 
+    /**
+     * description
+     *
+     * @param $where
+     *
+     * @return mixed
+     * @author karam mustafa
+     */
     public function find($where)
     {
         $tableName = static::tableName();
