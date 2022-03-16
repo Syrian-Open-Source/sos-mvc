@@ -25,4 +25,12 @@ class HomeController extends BaseController
     {
         return $this->render('home');
     }
+
+    public function contact()
+    {
+        $model = new ContactForm;
+        return $this->render('contact' , [
+            'model' => $model
+        ]);
+    }
 }
