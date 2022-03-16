@@ -20,6 +20,12 @@ class TextAreaField extends BaseField
         parent::__construct($model, $attribute);
     }
 
+    /**
+     * description
+     *
+     * @return string
+     * @author karam mustafa
+     */
     public function renderInput(): string
     {
         return sprintf('<textarea name = "%s" class="form-control %s" >%s</textarea>',

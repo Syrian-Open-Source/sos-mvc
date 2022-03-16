@@ -6,15 +6,49 @@ namespace app\core\Forms;
 
 use app\core\Model;
 
+/**
+ * Class BaseField
+ *
+ * @author karam mustafa
+ * @package app\core\Forms
+ */
 abstract class BaseField
 {
+    /**
+     *
+     */
     const TYPE_TEXT = 'text';
+    /**
+     *
+     */
     const TYPE_PASSWORD = 'password';
+    /**
+     *
+     */
     const TYPE_EMAIL = 'email';
+    /**
+     *
+     */
     const TYPE_DATE = 'date';
+    /**
+     *
+     */
     const TYPE_COLOR = 'color';
+    /**
+     *
+     */
     const TYPE_TIME = 'time';
+    /**
+     *
+     * @author karam mustafa
+     * @var \app\core\Model
+     */
     public Model $model;
+    /**
+     *
+     * @author karam mustafa
+     * @var string
+     */
     public string $attribute;
     /**
      *
@@ -23,14 +57,32 @@ abstract class BaseField
      */
     protected string $type;
 
+    /**
+     * description
+     *
+     * @return string
+     * @author karam mustafa
+     */
     abstract public function renderInput(): string;
 
+    /**
+     * BaseField constructor.
+     *
+     * @param  \app\core\Model  $model
+     * @param  string  $attribute
+     */
     public function __construct(Model $model, string $attribute)
     {
         $this->model = $model;
         $this->attribute = $attribute;
     }
 
+    /**
+     * description
+     *
+     * @return string
+     * @author karam mustafa
+     */
     public function __toString()
     {
         return sprintf('
@@ -48,6 +100,14 @@ abstract class BaseField
         );
     }
 
+    /**
+     * description
+     *
+     * @param  string  $type
+     *
+     * @return $this
+     * @author karam mustafa
+     */
     public function type(string $type)
     {
         $this->type = $type;
