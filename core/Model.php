@@ -177,7 +177,7 @@ abstract class Model
     }
 
     /**
-     * description
+     * append a new error in errors list for custom attribute.
      *
      * @param  string  $attr
      * @param  string  $message
@@ -208,7 +208,7 @@ abstract class Model
     }
 
     /**
-     * description
+     * check if attribute has any error.
      *
      * @param $attr
      *
