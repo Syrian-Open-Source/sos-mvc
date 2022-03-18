@@ -65,6 +65,14 @@ abstract class Model
         self::RULE_UNIQUE => 'Record with with this {field} already exists',
     ];
 
+    /**
+     * description
+     *
+     * @param $name
+     *
+     * @return mixed
+     * @author karam mustafa
+     */
     public function __get($name)
     {
         if (!property_exists(__CLASS__,$name)){
@@ -91,7 +99,7 @@ abstract class Model
     }
 
     /**
-     * description
+     * set model rule
      *
      * @return mixed
      * @author karam mustafa
