@@ -70,7 +70,7 @@ class Router
     }
 
     /**
-     * description
+     * set post request type.
      *
      * @param  string  $path
      * @param  mixed  $callback
