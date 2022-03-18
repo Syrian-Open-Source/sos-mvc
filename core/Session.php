@@ -27,7 +27,7 @@ class Session
     }
 
     /**
-     * description
+     * set session value by specific key.
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -43,7 +43,7 @@ class Session
     }
 
     /**
-     * description
+     * remove session value by specific key.
      *
      * @param  string  $key
      *
@@ -58,7 +58,7 @@ class Session
     }
 
     /**
-     * description
+     * get session value by specific key.
      *
      * @param $key
      *
