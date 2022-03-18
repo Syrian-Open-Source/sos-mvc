@@ -25,6 +25,15 @@ class Form
         echo '</form>';
     }
 
+    /**
+     * description
+     *
+     * @param  \app\core\Model  $model
+     * @param $attributes
+     *
+     * @return \app\core\Forms\InputField
+     * @author karam mustafa
+     */
     public function field(Model $model, $attributes)
     {
         return new InputField($model, $attributes);
