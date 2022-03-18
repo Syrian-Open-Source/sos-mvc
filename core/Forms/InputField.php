@@ -33,6 +33,12 @@ class InputField extends BaseField
         return $this;
     }
 
+    /**
+     * description
+     *
+     * @return string
+     * @author karam mustafa
+     */
     public function renderInput(): string
     {
         return sprintf('<input type = "%s" name = "%s" value = "%s" class="form-control %s" >',

@@ -15,6 +15,11 @@ class Form
         return new Form();
     }
 
+    /**
+     * description
+     *
+     * @author karam mustafa
+     */
     public function close()
     {
         echo '</form>';
