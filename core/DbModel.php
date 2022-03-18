@@ -14,7 +14,7 @@ abstract class DbModel extends Model
 {
 
     /**
-     * description
+     * set the model attributes
      *
      * @return array
      * @author karam mustafa
@@ -22,7 +22,7 @@ abstract class DbModel extends Model
     abstract public function attributes(): array;
 
     /**
-     * description
+     * set the table name
      *
      * @return string
      * @author karam mustafa
@@ -31,7 +31,7 @@ abstract class DbModel extends Model
 
 
     /**
-     * description
+     * save a new record
      *
      * @return bool
      * @author karam mustafa
@@ -56,7 +56,7 @@ abstract class DbModel extends Model
 
 
     /**
-     * description
+     * find custom record depending on where statement
      *
      * @param $where
      *
@@ -81,7 +81,7 @@ abstract class DbModel extends Model
     }
 
     /**
-     * description
+     * prepare sql statement
      *
      * @param  string  $sql
      *

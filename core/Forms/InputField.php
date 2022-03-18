@@ -21,6 +21,12 @@ class InputField extends BaseField
         parent::__construct($model, $attribute);
     }
 
+    /**
+     * description
+     *
+     * @return $this
+     * @author karam mustafa
+     */
     public function passwordField()
     {
         $this->type = self::TYPE_PASSWORD;
