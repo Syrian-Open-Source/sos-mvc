@@ -71,7 +71,6 @@ class Events
     public function trigger($event)
     {
         $callbacks = $this->eventListeners[$event] ?? [];
-        dd($this->eventListeners);
 
         foreach ($callbacks as $callback) {
 
