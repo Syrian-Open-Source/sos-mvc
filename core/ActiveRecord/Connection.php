@@ -30,4 +30,18 @@ class Connection
             ]
         ]);
     }
+
+    public function get($url, array $params = [])
+    {
+        $request = $this->client()->createRequest('GET', $url);
+
+        $query = $request->getQuery();
+
+        foreach ($params as $k => $v) {
+            $query->set($k, $v);
+        }
+
+        return $this->client()->send($request);
+    }
+
 }
