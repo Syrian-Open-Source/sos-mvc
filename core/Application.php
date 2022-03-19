@@ -121,7 +121,6 @@ class Application
         $this->response = new Response();
         $this->session = new Session();
         $this->view = new View();
-        $this->events = new Events();
         $this->router = new Router($this->request, $this->response);
         $this->db = new Database($config['db']);
     }

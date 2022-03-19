@@ -19,7 +19,7 @@ class Events
      * @author karam mustafa
      * @var array
      */
-    private array $eventListeners;
+    private array $eventListeners = [];
 
     /**
      * @return mixed
@@ -40,7 +40,6 @@ class Events
     public function setEvents($event, $callback = null)
     {
         $this->eventListeners[$event] = $callback;
-        dd($this->eventListeners);
 
         return $this;
     }
@@ -72,6 +71,7 @@ class Events
     public function trigger($event)
     {
         $callbacks = $this->eventListeners[$event] ?? [];
+        dd($this->eventListeners);
 
         foreach ($callbacks as $callback) {
 

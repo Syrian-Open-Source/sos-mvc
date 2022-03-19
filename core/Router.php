@@ -191,9 +191,9 @@ class Router
 
     private function registerRoutesEvents()
     {
-        $this->events = Application::$instance->events;
+        $this->events = new Events();
 
-        foreach ($this->routeEvents as $event){
+        foreach ($this->routeEvents as $event) {
             $this->events->setEvents($event);
         }
 
@@ -206,12 +206,14 @@ class Router
      * @param $event
      * @param $callback
      *
-     * @return \app\core\Events
+     * @return \app\core\Router
      * @author karam mustafa
      */
     public function on($event, $callback)
     {
-        return $this->events = $this->events->on($event, $callback);
+        $this->events = $this->events->on($event, $callback);
+
+        return $this;
     }
 
 
