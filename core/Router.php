@@ -42,12 +42,6 @@ class Router implements Eventable
     /**
      *
      * @author karam mustafa
-     * @var \app\core\Events
-     */
-    private Events $events;
-    /**
-     *
-     * @author karam mustafa
      * @var array
      */
     private array $routeEvents = [
@@ -66,7 +60,6 @@ class Router implements Eventable
         $this->request = $request;
         $this->response = $response;
         $this->view = app()->view;
-        $this->registerRoutesEvents();
     }
 
     /**
@@ -110,7 +103,6 @@ class Router implements Eventable
      */
     public function resolve()
     {
-        $this->events->trigger('BEFORE_ROUTE_IMPLEMENTED');
 
         $this->loadRouteFrom(__DIR__."./../routes/web.php");
 

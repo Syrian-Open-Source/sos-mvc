@@ -136,6 +136,7 @@ class Application
     public function run()
     {
         try {
+            app()->events->trigger('BEFORE_ROUTE_IMPLEMENTED');
             return $this->router->resolve();
         } catch (\Exception $e) {
             return $this->view->renderView('error', [

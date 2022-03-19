@@ -39,7 +39,7 @@ class Events
      */
     public function setEvents($event, $callback = null)
     {
-        $this->eventListeners[$event] = $callback;
+        $this->eventListeners[$event][] = $callback;
 
         return $this;
     }
@@ -75,6 +75,7 @@ class Events
         foreach ($callbacks as $callback) {
 
             call_user_func($callback);
+
         }
 
         return $this;
