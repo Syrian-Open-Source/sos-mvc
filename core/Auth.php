@@ -18,7 +18,7 @@ class Auth implements Authenticatable
 
 
     /**
-     * description
+     * login new user
      *
      * @param $user
      *
