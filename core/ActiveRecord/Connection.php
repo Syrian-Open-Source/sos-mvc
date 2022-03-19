@@ -6,6 +6,12 @@ namespace app\core\ActiveRecord;
 
 use GuzzleHttp\Client;
 
+/**
+ * Class Connection
+ *
+ * @author karam mustafa
+ * @package app\core\ActiveRecord
+ */
 class Connection
 {
     /**
@@ -15,6 +21,12 @@ class Connection
      */
     protected Client $client;
 
+    /**
+     * description
+     *
+     * @return \GuzzleHttp\Client
+     * @author karam mustafa
+     */
     public function client()
     {
         if ($this->client) {
@@ -33,6 +45,16 @@ class Connection
         ]);
     }
 
+    /**
+     * get request
+     *
+     * @param $url
+     * @param  array  $params
+     *
+     * @return \Psr\Http\Message\ResponseInterface
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @author karam mustafa
+     */
     public function get($url, array $params = [])
     {
         $request = $this->client()->createRequest('GET', $url);
@@ -46,15 +68,45 @@ class Connection
         return $this->client()->send($request);
     }
 
+    /**
+     * post request
+     *
+     * @param $url
+     * @param $body
+     *
+     * @return \Psr\Http\Message\ResponseInterface
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @author karam mustafa
+     */
     public function post($url, $body)
     {
         return $this->client()->post($url, ['body' => $body]);
     }
+
+    /**
+     * put request
+     *
+     * @param $url
+     * @param $body
+     *
+     * @return \Psr\Http\Message\ResponseInterface
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @author karam mustafa
+     */
     public function put($url, $body)
     {
         return $this->client()->put($url, ['body' => $body]);
     }
 
+    /**
+     * delete request
+     *
+     * @param $url
+     *
+     * @return \Psr\Http\Message\ResponseInterface
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @author karam mustafa
+     */
     public function delete($url)
     {
         return $this->client()->delete($url);
