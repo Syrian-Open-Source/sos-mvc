@@ -18,6 +18,6 @@
     "require": {
       "ext-pdo": "*",
         "vlucas/phpdotenv": "^5.3",
-        "guzzlehttp/guzzle": "~4.0"
+        "guzzlehttp/guzzle": "^7.0"
     }
 }
