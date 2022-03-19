@@ -145,7 +145,7 @@ class Application
         }
     }
     /**
-     * description
+     * set on event dispatcher
      *
      * @param $event
      * @param $callback
