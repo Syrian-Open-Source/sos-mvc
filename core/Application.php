@@ -81,6 +81,12 @@ class Application
      * @var \app\core\View
      */
     public View $view;
+    /**
+     *
+     * @author karam mustafa
+     * @var \app\core\Events
+     */
+    public Events $events;
 
     /**
      * @return \app\controllers\BaseController
@@ -117,6 +123,7 @@ class Application
         $this->view = new View();
         $this->router = new Router($this->request, $this->response);
         $this->db = new Database($config['db']);
+        $this->events = new Events();
     }
 
     /**

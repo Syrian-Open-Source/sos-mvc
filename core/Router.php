@@ -51,6 +51,7 @@ class Router
         $this->request = $request;
         $this->response = $response;
         $this->view = Application::$instance->view;
+        $this->events = Application::$instance->events;
     }
 
     /**
