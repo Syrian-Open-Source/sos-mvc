@@ -2,7 +2,7 @@
 
 namespace app\core;
 
-use app\controllers\BaseController;
+use app\core\Contracts\Eventable;
 use app\core\Contracts\Middleware;
 
 /**
@@ -10,7 +10,7 @@ use app\core\Contracts\Middleware;
  *
  * @author karam mustafa
  */
-class Router
+class Router implements Eventable
 {
 
     /**
@@ -39,6 +39,15 @@ class Router
      * @var \app\core\View
      */
     private View $view;
+    /**
+     *
+     * @author karam mustafa
+     * @var array
+     */
+    private array $routeEvents = [
+        'BEFORE_ROUTE_IMPLEMENTED',
+        'AFTER_ROUTE_IMPLEMENTED',
+    ];
 
     /**
      * Router constructor.
@@ -50,7 +59,7 @@ class Router
     {
         $this->request = $request;
         $this->response = $response;
-        $this->view = Application::$instance->view;
+        $this->view = app()->view;
     }
 
     /**
@@ -94,6 +103,7 @@ class Router
      */
     public function resolve()
     {
+
         $this->loadRouteFrom(__DIR__."./../routes/web.php");
 
         $path = $this->request->getPath();
@@ -126,7 +136,7 @@ class Router
 
         if (is_array($callback)) {
             $controller = new $callback[0]();
-            Application::$instance->controller = $controller;
+            app()->controller = $controller;
             $controller->action = $callback[1];
             $callback[0] = $controller;
             $this->executeMiddleware();
@@ -156,7 +166,7 @@ class Router
 
     private function executeMiddleware()
     {
-        foreach (Application::$instance->controller->getMiddleware() ?? [] as $middleware) {
+        foreach (app()->controller->getMiddleware() ?? [] as $middleware) {
             $middleware->execute();
         }
     }
@@ -166,7 +176,17 @@ class Router
         if (!$middleware instanceof Middleware) {
             throw new \Exception("$middleware must be type of middleware");
         }
-        Application::$instance->controller->registerMiddleware($middleware);
+        app()->controller->registerMiddleware($middleware);
+
+        return $this;
+    }
+
+    public function registerEvents()
+    {
+
+        foreach ($this->routeEvents as $event) {
+            app()->events->setEvents($event);
+        }
 
         return $this;
     }

@@ -7,6 +7,8 @@ use app\controllers\ContactController;
 use app\controllers\ProfileController;
 
 
+
+
 route()->get('/home', [HomeController::class, 'index']);
 route()->get('/about', [AboutController::class, 'index']);
 route()->get('/contact', [ContactController::class, 'index']);
