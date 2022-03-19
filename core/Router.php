@@ -45,6 +45,15 @@ class Router
      * @var \app\core\Events
      */
     private Events $events;
+    /**
+     *
+     * @author karam mustafa
+     * @var array
+     */
+    private array $routeEvents = [
+        'BEFORE_ROUTE_IMPLEMENTED',
+        'AFTER_ROUTE_IMPLEMENTED',
+    ];
 
     /**
      * Router constructor.
@@ -57,7 +66,7 @@ class Router
         $this->request = $request;
         $this->response = $response;
         $this->view = Application::$instance->view;
-        $this->events = Application::$instance->events;
+        $this->registerRoutesEvents();
     }
 
     /**
@@ -101,6 +110,8 @@ class Router
      */
     public function resolve()
     {
+        $this->events->trigger('BEFORE_ROUTE_IMPLEMENTED');
+
         $this->loadRouteFrom(__DIR__."./../routes/web.php");
 
         $path = $this->request->getPath();
@@ -174,6 +185,17 @@ class Router
             throw new \Exception("$middleware must be type of middleware");
         }
         Application::$instance->controller->registerMiddleware($middleware);
+
+        return $this;
+    }
+
+    private function registerRoutesEvents()
+    {
+        $this->events = Application::$instance->events;
+
+        foreach ($this->routeEvents as $event){
+            $this->events->setEvents($event);
+        }
 
         return $this;
     }
