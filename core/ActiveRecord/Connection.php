@@ -50,5 +50,9 @@ class Connection
     {
         return $this->client()->post($url, ['body' => $body]);
     }
+    public function put($url, $body)
+    {
+        return $this->client()->put($url, ['body' => $body]);
+    }
 
 }
