@@ -17,7 +17,9 @@ class Connection
 
     public function client()
     {
-        if ($this->client) return $this->client;
+        if ($this->client) {
+            return $this->client;
+        }
 
         return new Client([
             'base_url' => "ANY",
@@ -42,6 +44,11 @@ class Connection
         }
 
         return $this->client()->send($request);
+    }
+
+    public function post($url, $body)
+    {
+        return $this->client()->post($url, ['body' => $body]);
     }
 
 }
