@@ -19,7 +19,7 @@ class Events
      * @author karam mustafa
      * @var array
      */
-    private array $events;
+    private array $eventListeners;
 
     /**
      * @return mixed
@@ -27,7 +27,7 @@ class Events
      */
     public function getEvents()
     {
-        return $this->events;
+        return $this->eventListeners;
     }
 
     /**
@@ -39,7 +39,7 @@ class Events
      */
     public function setEvents($event, $callback = null)
     {
-        $this->events[$event] = $callback;
+        $this->eventListeners[$event] = $callback;
 
         return $this;
     }
@@ -54,6 +54,22 @@ class Events
      * @author karam mustafa
      */
     public function on($event, $callback = null)
+    {
+        $this->setEvents($event, $callback);
+
+        return $this;
+    }
+
+    /**
+     * description
+     *
+     * @param $event
+     * @param  null  $callback
+     *
+     * @return $this
+     * @author karam mustafa
+     */
+    public function trigger($event, $callback = null)
     {
         $this->setEvents($event, $callback);
 
