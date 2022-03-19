@@ -127,7 +127,7 @@ class Application
     }
 
     /**
-     * main run function
+     * run route resolver
      *
      * @return mixed|string
      * @throws \Exception
@@ -145,7 +145,7 @@ class Application
         }
     }
     /**
-     * description
+     * set on event dispatcher
      *
      * @param $event
      * @param $callback

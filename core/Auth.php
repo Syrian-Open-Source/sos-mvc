@@ -18,7 +18,7 @@ class Auth implements Authenticatable
 
 
     /**
-     * description
+     * login new user
      *
      * @param $user
      *
@@ -35,7 +35,7 @@ class Auth implements Authenticatable
     }
 
     /**
-     * description
+     * logout authenticated user.
      *
      * @param $user
      *
@@ -50,7 +50,7 @@ class Auth implements Authenticatable
     }
 
     /**
-     * description
+     * get authenticated user
      *
      * @return \app\core\DbModel
      * @author karam mustafa
@@ -62,7 +62,7 @@ class Auth implements Authenticatable
 
 
     /**
-     * description
+     * check if user authenticated
      *
      * @return bool
      * @author karam mustafa
