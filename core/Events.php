@@ -64,14 +64,18 @@ class Events
      * description
      *
      * @param $event
-     * @param  null  $callback
      *
      * @return $this
      * @author karam mustafa
      */
-    public function trigger($event, $callback = null)
+    public function trigger($event)
     {
-        $this->setEvents($event, $callback);
+        $callbacks = $this->eventListeners[$event] ?? [];
+
+        foreach ($callbacks as $callback){
+
+            call_user_func($callback);
+        }
 
         return $this;
     }
