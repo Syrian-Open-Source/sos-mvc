@@ -55,4 +55,9 @@ class Connection
         return $this->client()->put($url, ['body' => $body]);
     }
 
+    public function delete($url)
+    {
+        return $this->client()->delete($url);
+    }
+
 }
