@@ -50,7 +50,7 @@ class Auth implements Authenticatable
     }
 
     /**
-     * description
+     * get authenticated user
      *
      * @return \app\core\DbModel
      * @author karam mustafa
