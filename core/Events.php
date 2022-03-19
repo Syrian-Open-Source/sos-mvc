@@ -40,6 +40,7 @@ class Events
     public function setEvents($event, $callback = null)
     {
         $this->eventListeners[$event] = $callback;
+        dd($this->eventListeners);
 
         return $this;
     }
@@ -47,8 +48,8 @@ class Events
     /**
      * description
      *
-     * @param $event
-     * @param  null  $callback
+     * @param  string  $event
+     * @param  null| callable  $callback
      *
      * @return $this
      * @author karam mustafa
@@ -72,7 +73,7 @@ class Events
     {
         $callbacks = $this->eventListeners[$event] ?? [];
 
-        foreach ($callbacks as $callback){
+        foreach ($callbacks as $callback) {
 
             call_user_func($callback);
         }

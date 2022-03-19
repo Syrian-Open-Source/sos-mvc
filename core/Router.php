@@ -200,5 +200,19 @@ class Router
         return $this;
     }
 
+    /**
+     * description
+     *
+     * @param $event
+     * @param $callback
+     *
+     * @return \app\core\Events
+     * @author karam mustafa
+     */
+    public function on($event, $callback)
+    {
+        return $this->events = $this->events->on($event, $callback);
+    }
+
 
 }
