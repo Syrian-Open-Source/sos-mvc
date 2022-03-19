@@ -127,7 +127,7 @@ class Application
     }
 
     /**
-     * main run function
+     * run route resolver
      *
      * @return mixed|string
      * @throws \Exception
