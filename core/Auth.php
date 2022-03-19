@@ -62,7 +62,7 @@ class Auth implements Authenticatable
 
 
     /**
-     * description
+     * check if user authenticated
      *
      * @return bool
      * @author karam mustafa
