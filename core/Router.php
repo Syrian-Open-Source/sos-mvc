@@ -39,6 +39,12 @@ class Router
      * @var \app\core\View
      */
     private View $view;
+    /**
+     *
+     * @author karam mustafa
+     * @var \app\core\Events
+     */
+    private Events $events;
 
     /**
      * Router constructor.
