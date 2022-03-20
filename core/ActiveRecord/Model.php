@@ -12,7 +12,19 @@ abstract class Model
      * @var Connection
      */
     protected Connection $connection;
+    /**
+     * The model's attributes
+     *
+     * @var array
+     */
+    protected array $attributes = [];
 
+    /**
+     * The model's fillable attributes
+     *
+     * @var array
+     */
+    protected array $fillable = [];
     /**
      * Inject the Connection dependency
      *
