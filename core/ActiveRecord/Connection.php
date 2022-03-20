@@ -20,7 +20,30 @@ class Connection
      * @var Client
      */
     protected Client $client;
+    /**
+     *
+     * @author karam mustafa
+     * @var string
+     */
+    private string $subDomain;
+    /**
+     *
+     * @author karam mustafa
+     * @var string
+     */
+    private string $key;
 
+    /**
+     * Connection constructor.
+     *
+     * @param $key
+     * @param $subDomain
+     */
+    public function __construct($key, $subDomain)
+    {
+        $this->key = $key;
+        $this->subDomain = $subDomain;
+    }
     /**
      * description
      *
