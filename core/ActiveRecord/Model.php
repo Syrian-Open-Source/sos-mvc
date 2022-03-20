@@ -25,10 +25,12 @@ abstract class Model
      * @var array
      */
     protected array $fillable = [];
+
     /**
      * Inject the Connection dependency
      *
-     * @param Connection $connection
+     * @param  Connection  $connection
+     *
      * @return void
      */
     public function __construct(Connection $connection)
@@ -46,11 +48,13 @@ abstract class Model
     {
         return $this->connection;
     }
+
     /**
      * Set attribute on object
      *
-     * @param string $key
-     * @param string $mixed
+     * @param  string  $key
+     * @param  mixed  $value
+     *
      * @return void
      */
     protected function setAttribute($key, $value)
