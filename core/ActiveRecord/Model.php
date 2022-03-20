@@ -46,4 +46,15 @@ abstract class Model
     {
         return $this->connection;
     }
+    /**
+     * Set attribute on object
+     *
+     * @param string $key
+     * @param string $mixed
+     * @return void
+     */
+    protected function setAttribute($key, $value)
+    {
+        $this->attributes[$key] = $value;
+    }
 }
