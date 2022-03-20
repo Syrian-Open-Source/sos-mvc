@@ -1,10 +1,7 @@
 <?php
 
-namespace SOS\LaravelPackageTemplate\Tests;
 
-use Orchestra\Testbench\TestCase as OrchestraTestCase;
-
-class BaseTest extends OrchestraTestCase
+class BaseTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * description
