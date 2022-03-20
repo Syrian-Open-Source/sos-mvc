@@ -23,4 +23,15 @@ abstract class Model
     {
         $this->connection = $connection;
     }
+
+    /**
+     * Get the connection instance
+     *
+     * @return \app\core\ActiveRecord\Connection
+     * @author karam mustafa
+     */
+    public function connection()
+    {
+        return $this->connection;
+    }
 }
