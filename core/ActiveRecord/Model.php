@@ -67,6 +67,23 @@ abstract class Model
      *
      * @param $key
      *
+     * @return mixed
+     * @author karam mustafa
+     */
+    public function __get($key)
+    {
+        if (isset($this->attributes[$key])) {
+            return $this->attributes[$key];
+        }
+
+        throw new Exception("{$key} is not a valid property");
+    }
+
+    /**
+     * description
+     *
+     * @param $key
+     *
      * @return bool
      * @author karam mustafa
      */
@@ -107,4 +124,6 @@ abstract class Model
             }
         }
     }
+
+
 }
