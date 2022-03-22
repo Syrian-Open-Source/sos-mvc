@@ -23,5 +23,13 @@ class Name
     {
         $this->name = $name;
     }
-
+    /**
+     * Return the name as a string
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->name;
+    }
 }
