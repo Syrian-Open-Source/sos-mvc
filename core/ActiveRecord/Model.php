@@ -78,7 +78,14 @@ abstract class Model
 
         throw new Exception("{$key} is not a valid property");
     }
+    public function __set($key, $value)
+    {
+        if ($this->isFillable($key)) {
+            return $this->setAttribute($key, $value);
+        }
 
+        throw new Exception("{$key} is not a valid property");
+    }
     /**
      * description
      *
