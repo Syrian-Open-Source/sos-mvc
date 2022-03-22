@@ -74,4 +74,21 @@ abstract class Model
     {
         if (in_array($key, $this->fillable)) return true;
     }
+
+    /**
+     * description
+     *
+     * @param  array  $attributes
+     *
+     * @return array
+     * @author karam mustafa
+     */
+    protected function fillableFromArray(array $attributes)
+    {
+        if (count($this->fillable) > 0) {
+            return array_intersect_key($attributes, array_flip($this->fillable));
+        }
+
+        return $attributes;
+    }
 }
