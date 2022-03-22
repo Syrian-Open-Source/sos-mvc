@@ -68,6 +68,7 @@ abstract class Model
      * @param $key
      *
      * @return mixed
+     * @throws \Exception
      * @author karam mustafa
      */
     public function __get($key)
@@ -76,15 +77,25 @@ abstract class Model
             return $this->attributes[$key];
         }
 
-        throw new Exception("{$key} is not a valid property");
+        throw new \Exception("{$key} is not a valid property");
     }
+
+    /**
+     * description
+     *
+     * @param $key
+     * @param $value
+     *
+     * @throws \Exception
+     * @author karam mustafa
+     */
     public function __set($key, $value)
     {
         if ($this->isFillable($key)) {
             return $this->setAttribute($key, $value);
         }
 
-        throw new Exception("{$key} is not a valid property");
+        throw new \Exception("{$key} is not a valid property");
     }
     /**
      * description
