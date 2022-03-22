@@ -61,4 +61,17 @@ abstract class Model
     {
         $this->attributes[$key] = $value;
     }
+
+    /**
+     * description
+     *
+     * @param $key
+     *
+     * @return bool
+     * @author karam mustafa
+     */
+    protected function isFillable($key)
+    {
+        if (in_array($key, $this->fillable)) return true;
+    }
 }
