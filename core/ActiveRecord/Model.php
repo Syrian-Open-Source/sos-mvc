@@ -91,4 +91,20 @@ abstract class Model
 
         return $attributes;
     }
+
+    /**
+     * description
+     *
+     * @param  array  $attributes
+     *
+     * @author karam mustafa
+     */
+    protected function fill(array $attributes)
+    {
+        foreach ($this->fillableFromArray($attributes) as $key => $value) {
+            if ($this->isFillable($key)) {
+                $this->setAttribute($key, $value);
+            }
+        }
+    }
 }
