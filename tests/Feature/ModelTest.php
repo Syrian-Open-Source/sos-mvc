@@ -23,11 +23,22 @@ class ModelTest extends \BaseTest
         $this->model = new ModelStub(new Connection(", "));
     }
 
+    /**
+     * test get connection instance when the model initialized
+     *
+     * @author karam mustafa
+     */
     public function testConnectionMethodHasConnection()
     {
         $this->assertInstanceOf(Connection::class, $this->model->connection());
     }
 
+    /**
+     * test get plural class name
+     *
+     * @throws \ReflectionException
+     * @author karam mustafa
+     */
     public function testGetPluralEntityName()
     {
         $this->assertEquals('modelstubs', $this->model->base()->lowercase()->plural());
