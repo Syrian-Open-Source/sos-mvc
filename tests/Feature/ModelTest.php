@@ -22,4 +22,9 @@ class ModelTest extends \BaseTest
 
         $this->model = new ModelStub(new Connection(", "));
     }
+
+    public function testConnectionMethodHasConnection()
+    {
+        $this->assertInstanceOf(Connection::class, $this->model->connection());
+    }
 }
