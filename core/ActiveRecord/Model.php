@@ -143,5 +143,14 @@ abstract class Model
         }
     }
 
+    /**
+     * Return the base meta class
+     *
+     * @return Base
+     */
+    public function base()
+    {
+        return new Base($this);
+    }
 
 }
