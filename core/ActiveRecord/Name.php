@@ -32,4 +32,13 @@ class Name
     {
         return $this->name;
     }
+    /**
+     * Convert the name to singular
+     *
+     * @return \app\core\ActiveRecord\Name
+     */
+    public function singular()
+    {
+    }
+
 }
