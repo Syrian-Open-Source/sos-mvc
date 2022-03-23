@@ -39,7 +39,7 @@ class Connection
      * @param $key
      * @param $subDomain
      */
-    public function __construct($key, $subDomain = null)
+    public function __construct($key, $subDomain = '')
     {
         $this->key = $key;
         $this->subDomain = $subDomain;
