@@ -44,9 +44,26 @@ class Name
     /**
      * Convert the name to plural
      *
-     * @return PhilipBrown\CapsuleCRM\Meta\Name
+     * @return \app\core\ActiveRecord\Name
      */
     public function plural()
+    {
+    }
+    /**
+     * Convert the name to lowercase
+     *
+     * @return \app\core\ActiveRecord\Name
+     */
+    public function lowercase()
+    {
+    }
+
+    /**
+     * Convert the name to uppercase
+     *
+     * @return \app\core\ActiveRecord\Name
+     */
+    public function uppercase()
     {
     }
 
