@@ -41,4 +41,13 @@ class Name
     {
     }
 
+    /**
+     * Convert the name to plural
+     *
+     * @return PhilipBrown\CapsuleCRM\Meta\Name
+     */
+    public function plural()
+    {
+    }
+
 }
