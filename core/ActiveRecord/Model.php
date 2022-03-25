@@ -150,6 +150,7 @@ abstract class Model
      * Return the base meta class
      *
      * @return Base
+     * @throws \ReflectionException
      */
     public function base()
     {
