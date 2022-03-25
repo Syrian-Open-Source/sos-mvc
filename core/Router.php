@@ -164,6 +164,11 @@ class Router implements Eventable
         throw new \Exception("route file is not exist in path $path");
     }
 
+    /**
+     *
+     *
+     * @author karam mustafa
+     */
     private function executeMiddleware()
     {
         foreach (app()->controller->getMiddleware() ?? [] as $middleware) {
@@ -171,6 +176,15 @@ class Router implements Eventable
         }
     }
 
+    /**
+     * description
+     *
+     * @param  \app\core\Contracts\Middleware|null  $middleware
+     *
+     * @return $this
+     * @throws \Exception
+     * @author karam mustafa
+     */
     public function middleware(?Middleware $middleware)
     {
         if (!$middleware instanceof Middleware) {
