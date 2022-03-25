@@ -177,7 +177,7 @@ class Router implements Eventable
     }
 
     /**
-     * description
+     * register middleware when route begin loaded
      *
      * @param  \app\core\Contracts\Middleware|null  $middleware
      *
