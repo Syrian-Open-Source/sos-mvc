@@ -181,6 +181,12 @@ class Router implements Eventable
         return $this;
     }
 
+    /**
+     * register route events
+     *
+     * @return $this
+     * @author karam mustafa
+     */
     public function registerEvents()
     {
 
