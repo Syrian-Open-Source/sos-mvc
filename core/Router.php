@@ -147,7 +147,7 @@ class Router implements Eventable
 
 
     /**
-     * description
+     * load routes from a default web file.
      *
      * @param  string  $path
      *
