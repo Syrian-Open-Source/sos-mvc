@@ -41,7 +41,7 @@ abstract class Model
     /**
      * Get the connection instance
      *
-     * @return \app\core\ActiveRecord\Connection
+     * @return Connection
      * @author karam mustafa
      */
     public function connection()
@@ -55,11 +55,13 @@ abstract class Model
      * @param  string  $key
      * @param  mixed  $value
      *
-     * @return void
+     * @return Model
      */
     protected function setAttribute($key, $value)
     {
         $this->attributes[$key] = $value;
+
+        return $this;
     }
 
     /**
@@ -86,6 +88,7 @@ abstract class Model
      * @param $key
      * @param $value
      *
+     * @return Model
      * @throws \Exception
      * @author karam mustafa
      */
