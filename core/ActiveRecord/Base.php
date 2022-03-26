@@ -35,4 +35,9 @@ class Base
     {
         return $this->getNameInstance()->uppercase();
     }
+
+    public function plural()
+    {
+        return $this->getNameInstance()->plural();
+    }
 }
