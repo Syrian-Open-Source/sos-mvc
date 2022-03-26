@@ -37,6 +37,12 @@ class Base
         return $this->getNameInstance()->lowercase();
     }
 
+    /**
+     * Convert the name to uppercase
+     *
+     * @return \app\core\ActiveRecord\Name
+     * @author karam mustafa
+     */
     public function uppercase()
     {
         return $this->getNameInstance()->uppercase();
