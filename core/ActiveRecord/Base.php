@@ -25,4 +25,9 @@ class Base
     {
         $this->reflection = new \ReflectionClass($model);
     }
+
+    public function lowercase()
+    {
+        return $this->getNameInstance()->lowercase();
+    }
 }
