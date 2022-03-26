@@ -23,12 +23,11 @@ class Runner
      * Runner constructor.
      *
      * @param  \app\core\Application  $application
-     * @param  string  $type
+     *
      */
-    public function __construct(Application $application, string $type)
+    public function __construct(Application $application)
     {
         $this->application = $application;
-        $this->resolveCommand($type);
     }
 
     /**
@@ -36,9 +35,10 @@ class Runner
      *
      * @param $type
      *
+     * @return bool
      * @author karam mustafa
      */
-    private function resolveCommand($type)
+    public function resolveCommand($type)
     {
         if ($type == 'migrate') {
             $this->application->db->runMigration();
@@ -47,6 +47,8 @@ class Runner
         if ($type == 'db:refresh') {
             $this->application->db->refresh();
         }
+
+        return true;
     }
 
 
