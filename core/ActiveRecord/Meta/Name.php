@@ -56,6 +56,7 @@ class Name
      */
     public function lowercase()
     {
+        return new Name(strtolower($this->name));
     }
 
     /**
