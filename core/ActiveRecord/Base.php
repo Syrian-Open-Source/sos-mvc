@@ -26,6 +26,12 @@ class Base
         $this->reflection = new \ReflectionClass($model);
     }
 
+    /**
+     * Convert the name to lowercase
+     *
+     * @return \app\core\ActiveRecord\Name
+     * @author karam mustafa
+     */
     public function lowercase()
     {
         return $this->getNameInstance()->lowercase();
