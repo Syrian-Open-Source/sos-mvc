@@ -70,6 +70,12 @@ class Base
         return $this->getNameInstance()->singular();
     }
 
+    /**
+     * Create new Name instance
+     *
+     * @return \app\core\ActiveRecord\Name
+     * @author karam mustafa
+     */
     protected function getNameInstance()
     {
         return new Name($this->reflection->getShortName());
