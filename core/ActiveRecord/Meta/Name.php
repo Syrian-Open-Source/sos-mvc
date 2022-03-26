@@ -66,6 +66,7 @@ class Name
      */
     public function uppercase()
     {
+        return new Name(strtoupper($this->name));
     }
 
 }
