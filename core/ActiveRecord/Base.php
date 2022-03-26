@@ -48,6 +48,12 @@ class Base
         return $this->getNameInstance()->uppercase();
     }
 
+    /**
+     * Convert the name to plural
+     *
+     * @return \app\core\ActiveRecord\Name
+     * @author karam mustafa
+     */
     public function plural()
     {
         return $this->getNameInstance()->plural();
