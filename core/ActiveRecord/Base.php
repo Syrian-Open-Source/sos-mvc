@@ -30,4 +30,9 @@ class Base
     {
         return $this->getNameInstance()->lowercase();
     }
+
+    public function uppercase()
+    {
+        return $this->getNameInstance()->uppercase();
+    }
 }
