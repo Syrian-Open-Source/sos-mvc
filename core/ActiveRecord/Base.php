@@ -59,6 +59,12 @@ class Base
         return $this->getNameInstance()->plural();
     }
 
+    /**
+     * Convert the name to singular
+     *
+     * @return \app\core\ActiveRecord\Name
+     * @author karam mustafa
+     */
     public function singular()
     {
         return $this->getNameInstance()->singular();
