@@ -40,4 +40,9 @@ class Base
     {
         return $this->getNameInstance()->plural();
     }
+
+    public function singular()
+    {
+        return $this->getNameInstance()->singular();
+    }
 }
