@@ -45,4 +45,9 @@ class Base
     {
         return $this->getNameInstance()->singular();
     }
+
+    protected function getNameInstance()
+    {
+        return new Name($this->reflection->getShortName());
+    }
 }
