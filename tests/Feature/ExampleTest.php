@@ -3,7 +3,7 @@
 namespace SOS\LaravelPackageTemplate\Tests\Feature;
 
 
-class ExampleTest extends BaseTest
+class ExampleTest extends \BaseTest
 {
     /**
      * descriptions
