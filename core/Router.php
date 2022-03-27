@@ -147,7 +147,7 @@ class Router implements Eventable
 
 
     /**
-     * description
+     * load routes from a default web file.
      *
      * @param  string  $path
      *
@@ -164,6 +164,11 @@ class Router implements Eventable
         throw new \Exception("route file is not exist in path $path");
     }
 
+    /**
+     * execute middleware
+     *
+     * @author karam mustafa
+     */
     private function executeMiddleware()
     {
         foreach (app()->controller->getMiddleware() ?? [] as $middleware) {
@@ -171,6 +176,15 @@ class Router implements Eventable
         }
     }
 
+    /**
+     * register middleware when route begin loaded
+     *
+     * @param  \app\core\Contracts\Middleware|null  $middleware
+     *
+     * @return $this
+     * @throws \Exception
+     * @author karam mustafa
+     */
     public function middleware(?Middleware $middleware)
     {
         if (!$middleware instanceof Middleware) {
@@ -181,6 +195,12 @@ class Router implements Eventable
         return $this;
     }
 
+    /**
+     * register route events
+     *
+     * @return $this
+     * @author karam mustafa
+     */
     public function registerEvents()
     {
 
