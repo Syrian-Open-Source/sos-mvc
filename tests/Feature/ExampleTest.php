@@ -2,7 +2,6 @@
 
 namespace SOS\LaravelPackageTemplate\Tests\Feature;
 
-use SOS\LaravelPackageTemplate\Tests\BaseTest;
 
 class ExampleTest extends BaseTest
 {

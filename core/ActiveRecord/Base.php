@@ -25,4 +25,59 @@ class Base
     {
         $this->reflection = new \ReflectionClass($model);
     }
+
+    /**
+     * Convert the name to lowercase
+     *
+     * @return \app\core\ActiveRecord\Name
+     * @author karam mustafa
+     */
+    public function lowercase()
+    {
+        return $this->getNameInstance()->lowercase();
+    }
+
+    /**
+     * Convert the name to uppercase
+     *
+     * @return \app\core\ActiveRecord\Name
+     * @author karam mustafa
+     */
+    public function uppercase()
+    {
+        return $this->getNameInstance()->uppercase();
+    }
+
+    /**
+     * Convert the name to plural
+     *
+     * @return \app\core\ActiveRecord\Name
+     * @author karam mustafa
+     */
+    public function plural()
+    {
+        return $this->getNameInstance()->plural();
+    }
+
+    /**
+     * Convert the name to singular
+     *
+     * @return \app\core\ActiveRecord\Name
+     * @author karam mustafa
+     */
+    public function singular()
+    {
+        return $this->getNameInstance()->singular();
+    }
+
+    /**
+     * Create new Name instance
+     *
+     * @return \app\core\ActiveRecord\Name
+     * @author karam mustafa
+     */
+    protected function getNameInstance()
+    {
+        return new Name($this->reflection->getShortName());
+    }
 }
